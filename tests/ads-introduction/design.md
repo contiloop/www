@@ -2,9 +2,10 @@
 
 ## 1 Overview
 - Type: research paper
-- Reader: open (see Status, open questions)
+- Reader: reviewers at a machine-translation or NLP conference, judging whether the problem, the gap and the method are well motivated and the claims supported
 - Topic: efficient selection of translation training data under a limited Teacher LLM budget
-- Message: the paper answers which sentences deserve the teacher's annotation budget, by selecting low-QE sentences (see Status, proposals)
+- Message: the Introduction establishes the research question of which source sentences should be selected under a limited teacher annotation budget, then introduces QE-guided Active Data Selection (ADS) as the proposed method, which prioritizes low-QE sentences (replaces: the paper answers which sentences deserve the teacher's budget, by selecting low-QE sentences)
+    author: The Introduction should establish the research question of which source sentences should be selected under a limited teacher annotation budget, and then introduce QE-guided Active Data Selection (ADS) as the proposed method, which prioritizes low-QE sentences.
 - Progression: existing translation services have cost and security problems → a small, locally deployable, domain-specific translation model must be developed → training it needs parallel data, which Teacher LLMs can supply but not for the whole dataset → which sentences should receive the teacher's budget → QE-guided ADS, which prioritizes low-QE sentences → experiments compare ADS with baselines → the conclusion answers the research question
 
 ## 2 Structure and section plans
@@ -69,7 +70,7 @@ C12 (description) ADS prioritizes low-QE sentences.
 - Rejected logic: research question → well-translated sentences gain little from more supervision → poorly translated sentences expose weaknesses → low quality does not guarantee training value, so the benefit must be verified empirically → ADS
 
 ## 5 Status
-document: type agreed, reader-and-topic open, structure agreed
+document: type agreed, reader-and-topic agreed, structure agreed
 sections:
   Introduction: level logic, draft none
   Related Work: level plan, draft none
@@ -77,8 +78,6 @@ sections:
   Experiments: level plan, draft none
   Conclusion: level plan, draft none
 last worked on: Introduction
-open questions:
-  - Who the reader is, which venue the paper goes to, and what that reader will judge from the text; lands in Overview, the reader line; while it is open the draft cannot be pitched at a reader's judgment and the review has no reader to check the text against
+open questions: none
 proposals:
-  - Overview, message line: "the paper answers which sentences deserve the teacher's annotation budget, by selecting low-QE sentences", derived from C10 to C12 and the topic, alternatives: keep as written / the author's own wording, recommended keep as written
   - Introduction, detailed logic, the relations whose Korean line carries no connective: C4 → C5 by contrast, C6 → C7 by cause, C11 → C12 by condition, alternatives: keep as written / the author names each relation, recommended keep as written
