@@ -6,8 +6,6 @@ description: >
   logic and wording through questions and proposals, records what is agreed in design.md and drafts
   draft.md so the text says exactly what was agreed. Use when the author asks to write or work on a
   document, or on design.md or draft.md.
-disable-model-invocation: true
-allowed-tools: Read, Edit, Write, Bash, Grep, Glob, Agent, AskUserQuestion
 ---
 
 # write
@@ -27,7 +25,7 @@ headings and its Status values (`type`, `reader-and-topic`, `structure`, `plan`,
 
 ## Entry
 
-The document folder is the directory the command runs in, or the path given after `/www:write`.
+The document folder is the directory the command runs in, or the path given after the command.
 Everything after the command is natural language; there are no sub-commands and no required order of
 steps. Read `references/design-format.md` and `references/elicit.md` before anything else, then
 decide which of three cases the folder is in:
