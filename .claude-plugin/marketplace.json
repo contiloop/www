@@ -1,0 +1,13 @@
+{
+  "name": "www",
+  "description": "I Know How to Write: a human–AI collaborative writing harness for Claude Code.",
+  "owner": { "name": "inertia" },
+  "plugins": [
+    {
+      "name": "www",
+      "description": "Discuss a document's message, structure, logic and wording with the author, record what is agreed, and draft text that keeps it.",
+      "source": "./claude",
+      "keywords": ["writing", "academic-writing", "drafting", "elicitation", "claude-code", "skill"]
+    }
+  ]
+}
