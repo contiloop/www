@@ -4,12 +4,9 @@ The fixture is `design.md` in this folder: the record of the author's machine-tr
 
 ## Before the run
 
-Two lines in `design.md` wait for the author (see its Status part):
+The reader and message lines in Overview were given by the author on 2026-11-07 and are filled. One proposal is still pending in Status: the three relations whose Korean line has no connective (C4 → C5, C6 → C7, C11 → C12). The author confirms or renames them in the session's first turn; until then a draft that renders them differently is not a failure.
 
-1. The reader and venue line in Overview is open. The author fills it in the session's first turn; nothing in the author's material gives it, so it is not filled in advance.
-2. The message line in Overview is derived from claims 10 to 12 and the topic. The author confirms it or replaces it with their own wording.
-
-The Status part also lists the three relations whose Korean line has no connective (C4 → C5, C6 → C7, C11 → C12). The author confirms or renames them in the same turn.
+A headless variant of steps 2 to 6 (one `claude -p` command, stdin from `/dev/null`, the git offer pre-answered in the prompt) is in `docs/operations.md`; it produces the same artifacts.
 
 ## Steps
 
@@ -20,7 +17,7 @@ The Status part also lists the three relations whose Korean line has no connecti
 
 2. Open a Claude Code session in this folder (`tests/ads-introduction/`).
 3. Invoke `/www:write`.
-4. Answer the open reader and venue line. Confirm or fix the message line. Confirm or rename the three relations. Check that the skill writes the answers into `design.md` and quotes them back.
+4. Confirm or rename the three pending relations. Check that the skill writes the answer into `design.md` and quotes it back.
 5. Ask for a draft of the Introduction.
 6. Ask for an explanation of the draft in Korean.
 7. Save the draft text to `results/draft.md` and the Korean explanation to `results/explanation.md`.

@@ -11,4 +11,6 @@ Judged:
 - Korean explanation contains no claim absent from the record: pass (twelve claims restated; the extra lines under 3, 10 and 11 describe how the draft rendered them, not new claims; "useful" absent).
 - Self-check before showing and independent check after: pass (both reported in the reply; the session log shows one subagent dispatch).
 
+Review of the skill files for hardcoded question lists and document-type templates (spec verification item 1): none found in `SKILL.md` or the seven references.
+
 Not covered by this run: the questioning half (reader and message lines were given to the fixture before the run), the stale and hand-edit flows, the manuscript path. The record's Status was changed by the run (Introduction draft `drafted`) and `draft.md` was written in this folder; both were restored so the fixture can be rerun.

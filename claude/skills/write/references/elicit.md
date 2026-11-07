@@ -59,7 +59,7 @@ Keep asking while an answer opens a further unsettled point. An answer that intr
 
 Make a proposal, rather than a question, when the decision is one the author expects you to shape: the central message or how the topic is framed; the structure or a section's plan; a section's detailed logic; a rendering of a sentence the author flagged. A proposal offers two or three alternatives, states the difference between them in terms of what each makes the text say or emphasize, and recommends one. A single proposal gets accepted by inertia and your judgment then shapes the document, which is the failure this file exists to stop.
 
-A proposal is not agreed until the author accepts it. Until then it lives in Status. When the author accepts, the accepted line moves into its part of the record and is quoted back in the same reply, English line and the author's words. When the author rejects an alternative, record it under the section's emphasis and wording notes as a rejected logic or rejected addition, so no later turn proposes it again. When the author alters an alternative, record the altered version as theirs.
+A proposal is not agreed until the author accepts it. Until then it lives in Status. When the author accepts, the accepted line moves into its part of the record and is quoted back in the same reply, English line and the author's words. When the author rejects an alternative, record it under the section's emphasis and wording notes (a rejected logic always; a rejected addition when a later draft or proposal could bring it back, otherwise drop it from Status), so no later turn proposes it again. When the author alters an alternative, record the altered version as theirs.
 
 ## Recognizing the level
 

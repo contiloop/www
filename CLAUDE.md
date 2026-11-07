@@ -6,8 +6,8 @@ A Claude Code plugin for one author, with one skill, `/www:write`: it settles a 
 
 ```
 www/
-├── CLAUDE.md                          ← this file (AGENTS.md is identical)
-├── AGENTS.md
+├── CLAUDE.md                          ← Claude Code entry point
+├── AGENTS.md                          ← agent entry point, identical content
 ├── README.md                          ← install, use, check, acceptance test
 ├── .claude-plugin/marketplace.json    ← marketplace "www", one plugin, source ./claude
 ├── claude/

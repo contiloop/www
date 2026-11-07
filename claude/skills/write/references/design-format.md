@@ -1,6 +1,6 @@
 # The record: `design.md`
 
-The record is the file the author owns and the authority every draft, check and restatement is compared against. The conversation is where things get settled; the record is where they exist. If the two disagree, the record wins, and the record is written in English even though the author discusses mostly in Korean.
+The record is the file the author owns and the authority every draft, check and restatement is compared against. The conversation is where things get settled; the record is where they exist. If the two disagree, the record wins, and the record is written in English whatever language the author discusses in.
 
 ## Shape
 

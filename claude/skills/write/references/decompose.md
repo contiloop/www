@@ -11,13 +11,13 @@ Read the material fragment by fragment (a sentence, a bullet, a heading, a line 
 - Detailed logic of a section: a claim, its role (need, cause, judgment, question, proposal, description), the relation that carries it to the next claim, and the condition under which the relation holds.
 - Emphasis and wording: a condition that must survive in the text, a claim to stress, a distinction between two words, an expression to keep, something the author refuses to say.
 
-A fragment informs more than one part more often than not: "we must build a local model because hosted services leak data" is a claim with its role and relation (logic), a condition that must survive (emphasis and wording), and a hint about the central message (overview). File it under all three. Filing under too many parts costs one extra look; filing under too few hides an obligation that part then shows as unsettled or, worse, as settled by silence.
+A fragment informs more than one part more often than not: "the clinic must run its own scheduler because the hosted ones send patient data off-site" is a claim with its role and relation (logic), a condition that must survive (emphasis and wording), and a hint about the central message (overview). File it under all three. Filing under too many parts costs one extra look; filing under too few hides an obligation that part then shows as unsettled or, worse, as settled by silence.
 
 Keep the author's own words verbatim wherever a fragment carries a claim, a relation, a condition or a distinction. Your English paraphrase sits beside the author's words in the record later; it never replaces them in the material, because the paraphrase is where meaning drifts.
 
 ## A mention is not a statement
 
-Mark each filed fragment by its form: a bare mention (a heading, a keyword, "say something about cost") or a statement that carries its relations and conditions ("cost rules out hosted services for a lab of this size, which is why the model must run locally"). A part of the record that only mentions carry is touched, not settled; every obligation of that part remains open and is asked. A clean, well-organized outline is the case where this matters most: every part looks covered because the outline has a line for it, and none of the lines says what the claim is or why it follows.
+Mark each filed fragment by its form: a bare mention (a heading, a keyword, "say something about cost") or a statement that carries its relations and conditions ("the per-booking fee rules out the hosted scheduler for a clinic this small, which is why the tool must run on the clinic's own machine"). A part of the record that only mentions carry is touched, not settled; every obligation of that part remains open and is asked. A clean, well-organized outline is the case where this matters most: every part looks covered because the outline has a line for it, and none of the lines says what the claim is or why it follows.
 
 ## Repetition is emphasis
 
