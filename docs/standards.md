@@ -49,4 +49,4 @@ The skill writes `design.md`, `draft.md` and `~/.claude/www/writing-rules.md`, n
 
 ## Commits
 
-The repository's commits end with the line `Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>` when an AI agent authored the change. The `.dryforge/` folder is ignored and never committed.
+The repository's commits end with the line `Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>` when an AI agent authored the change. Paths listed in `.gitignore` are never committed; working folders of planning tools stay out of the tree.
