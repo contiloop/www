@@ -1,0 +1,45 @@
+**Recorded.** The three relations stand as written in part 3; the proposal is removed from Status.
+
+```
+C4 (need) Training such models requires parallel data.
+  → C5 by contrast
+C6 (need) An alternative source of supervision is needed.
+  → C7 by cause
+C11 (proposal) We propose QE-guided ADS.
+  → C12 by condition
+```
+Your words: "Keep the three pending relations as written."
+
+Status now reads `Introduction: level logic, draft drafted` and `proposals: none`.
+
+**Draft of the Introduction**, written to `draft.md`. Before showing it I checked every sentence against the record, claim by claim, relation by relation, and against the wording notes; the check changed nothing.
+
+> ## Introduction
+>
+> Translation technology has advanced. However, using existing translation services raises cost and security issues. Therefore, a small, domain-specific translation model that can run locally must be developed. Training such a model requires parallel data, but constructing parallel data manually is difficult. An alternative source of supervision is therefore needed. Teacher LLMs can provide high-quality translation supervision, but applying them to the entire dataset is expensive. Even a small amount of high-quality parallel data, however, can improve the student's translation performance. Which sentences, then, should receive the teacher's annotation budget when that budget is limited? To answer this question, we propose QE-guided Active Data Selection (ADS). ADS evaluates the student's translations with a QE model and selects the sentences with low QE scores first.
+
+Sentence to claim: 1→C1, 2→C2, 3→C3, 4→C4+C5, 5→C6, 6→C7+C8, 7→C9, 8→C10, 9→C11, 10→C12.
+
+**Independent check.** A fresh reviewer that did not write the draft compared it with parts 3 and 4 of the record. It confirmed all twelve claims present, in order, with their roles, the "can run locally" and "when that budget is limited" conditions kept, no usefulness claim, and nothing between the question and ADS. It reported two points, both about relations carried without a connective:
+
+1. Site: "Teacher LLMs can provide high-quality translation supervision, but applying them to the entire dataset is expensive." Record: C6 → C7 by cause. Draft: C7 follows the need in C6 as a bare next sentence; no word marks the cause sense.
+   My recommendation: keep the draft. Your own line for C7 has no connective, and you kept the relation as written; a "since" or "because" here would need a clause the record does not have. Say the word if you want one added.
+2. Site: "ADS evaluates the student's translations with a QE model and selects the sentences with low QE scores first." Record: C11 → C12 by condition. Draft: C12 follows the proposal as a plain description; no word marks the condition sense.
+   My recommendation: keep the draft, for the same reason.
+
+The draft changes on either point only on your word.
+
+**한국어 설명** (초안이 말하는 내용, 기록의 각 주장에 대응하여):
+
+1. 번역 기술은 발전했다.
+2. 그러나 기존 번역 서비스를 사용하기에는 비용·보안 문제가 있다.
+3. 그러므로 로컬에서 실행할 수 있는 작은 도메인 특화 번역 모델을 개발해야 한다.
+4. 이러한 모델을 학습하려면 병렬 데이터가 필요하지만, 병렬 데이터를 사람에게 만들도록 하기는 어렵다.
+5. 따라서 다른 supervision 공급원이 필요하다.
+6. Teacher LLM은 양질의 번역 supervision을 제공할 수 있지만, 전체 데이터에 사용하기에는 비용이 크다.
+7. 그러나 소량의 고품질 병렬 데이터만으로도 student의 번역 성능을 개선할 수 있다.
+8. 그렇다면 제한된 비용으로 어떤 문장을 teacher에게 맡겨야 하는가?
+9. 이 질문에 답하기 위해 QE-guided Active Data Selection(ADS)을 제안한다.
+10. ADS는 student의 번역을 QE 모델로 평가하고, QE 점수가 낮은 문장을 우선 선택한다.
+
+Each line above matches a recorded claim (C1 to C12); the explanation states nothing the record lacks.
