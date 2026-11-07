@@ -85,7 +85,7 @@ sh tests/ads-introduction/check.sh tests/ads-introduction/results/draft.md tests
 Codex, headless, from `tests/ads-introduction/` (single quotes keep the shell from expanding `$write`):
 
 ```bash
-codex exec --dangerously-bypass-approvals-and-sandbox -o results/last-codex.md '$write No need to initialize git here. Keep the three pending relations as written. Draft the Introduction section. After the draft and its checks, give me a Korean explanation of what the draft says.' < /dev/null > results/transcript-codex.txt 2>&1
+codex exec --dangerously-bypass-approvals-and-sandbox '$write No need to initialize git here. Keep the three pending relations as written. Draft the Introduction section. After the draft and its checks, give me a Korean explanation of what the draft says.' < /dev/null > results/transcript-codex.txt 2>&1
 ```
 
 Save the artifacts with the `-codex` suffix and run the same `check.sh`. Codex's session log under `~/.codex/sessions/<year>/<month>/<day>/` shows the independent check as a `spawn_agent` call.
@@ -98,7 +98,7 @@ git checkout -- tests/ads-introduction/design.md && rm -f tests/ads-introduction
 
 ## Using the skill on a document
 
-Open a Claude Code session in the document's folder (or pass the folder path after the command) and run `/www:write` followed by the request in plain words. The skill creates `design.md` and `draft.md` there. `~/.claude/www/writing-rules.md` appears the first time a cross-document rule is accepted; deleting it drops those rules, nothing else.
+Open a Claude Code or Codex session in the document's folder (or pass the folder path after the command) and run `/www:write` or `$write` followed by the request in plain words. The skill creates `design.md` and `draft.md` there. `~/.claude/www/writing-rules.md` appears the first time a cross-document rule is accepted; deleting it drops those rules, nothing else.
 
 ## Uninstall
 

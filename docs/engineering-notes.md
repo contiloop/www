@@ -10,8 +10,6 @@
 
 - How to confirm the independent check ran in a headless Codex run: the session log is `~/.codex/sessions/<year>/<month>/<day>/rollout-<timestamp>-<id>.jsonl`; `grep -c spawn_agent <log>` is non-zero when a subagent was dispatched. The Codex skill also ran the fixture's own `check.sh` before showing the draft, because the script sits in the folder; this is harmless but means the reply's "mechanical check passed" line comes from the skill, not from the reader.
 
-- Symptom: `scripts/check.sh` passes in a worktree that has reference files but no `SKILL.md`. Cause: by design the `SKILL.md` checks are skipped with a `note` line while the file is absent, so reference files can be written and checked before the entry file exists. Response: once `SKILL.md` exists the cross-checks run; treat the `note` line as a reminder, not a pass.
-
 - Symptom: a headless run (`claude -p`) prints "no stdin data received in 3s" and waits. Cause: `-p` reads a prompt from stdin when stdin is a terminal or an open pipe. Response: redirect stdin from `/dev/null`.
 
 - Symptom: a headless acceptance run stops after asking whether to initialize git. Cause: the skill offers `git init` once at document start and the structured-question tool cannot be answered without a user. Response: put the answer in the prompt ("No need to initialize git here"), as `RUN.md` does; the skill then proceeds.

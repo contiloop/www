@@ -1,6 +1,6 @@
 # Security
 
-The plugin runs inside Claude Code on the author's machine with the author's own permissions. There is no authentication, no network surface, no credential and no multi-user state. What is protected is the author's text and the author's authority over what the document says.
+The plugin runs inside Claude Code or Codex on the author's machine with the author's own permissions. There is no authentication, no network surface, no credential and no multi-user state. What is protected is the author's text and the author's authority over what the document says.
 
 ## Protected assets
 

@@ -1,6 +1,6 @@
 {
   "name": "www",
-  "description": "I Know How to Write: a human–AI collaborative writing harness for Claude Code.",
+  "description": "I Know How to Write: work out a document with its author, record what is agreed, draft text that keeps it. For Claude Code and Codex.",
   "owner": { "name": "inertia" },
   "plugins": [
     {

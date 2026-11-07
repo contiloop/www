@@ -41,7 +41,9 @@ A headless variant of steps 2 to 6 (one `claude -p` command, stdin from `/dev/nu
 2. Open a Codex session in this folder and invoke `$write`, then follow steps 4 to 6 of the Claude Code list with the same requests.
 3. Headless form, from this folder (the sandbox and approvals are bypassed because the skill writes `design.md` and `draft.md` here and dispatches a subagent; run it only in this version-controlled folder):
 
-       codex exec --dangerously-bypass-approvals-and-sandbox -o results/last-codex.md "$write No need to initialize git here. Keep the three pending relations as written. Draft the Introduction section. After the draft and its checks, give me a Korean explanation of what the draft says." < /dev/null > results/transcript-codex.txt 2>&1
+       codex exec --dangerously-bypass-approvals-and-sandbox '$write No need to initialize git here. Keep the three pending relations as written. Draft the Introduction section. After the draft and its checks, give me a Korean explanation of what the draft says.' < /dev/null > results/transcript-codex.txt 2>&1
+
+   Single quotes keep the shell from expanding `$write`.
 
 4. Save the artifacts with the `-codex` suffix: `results/draft-codex.md`, `results/explanation-codex.md`, `results/mapping-codex.txt`, and run
 

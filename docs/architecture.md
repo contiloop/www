@@ -41,7 +41,7 @@ Reference files and the step each governs:
 
 ## Files at run time
 
-Per document, in the document folder (the directory `/www:write` runs in, or the path given as its argument):
+Per document, in the document folder (the directory the command runs in, or the path given as its argument):
 
 - `design.md`: the record, the authority every check compares against.
 - `draft.md`: the text, one heading per section.

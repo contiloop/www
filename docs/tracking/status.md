@@ -10,6 +10,7 @@
 
 - The questioning half: level inference, the three grounds, proposals in alternatives, contradiction and dependents, declined questions. The fixture pre-answers it; it is verified in the author's first live session on a real document.
 - The existing-manuscript path, the hand-edit flow in `draft.md`, stale marking and rewrite on request, the whole-document tempo, the user rules file creation and the "wins on conflict" read. Each is specified and read in review; none has been exercised.
+- On Codex, the refused write of the user rules file under the default sandbox and the skill's report of it: specified, not exercised (the author's Codex allows the write).
 - The Codex update path (`codex plugin remove www && codex plugin add www@www`) after a version bump: documented, not yet exercised; the first Codex install was fresh.
 
 ## Remaining, in order
