@@ -9,7 +9,8 @@
 #     whitespace or by the end of the text; sentences are numbered from 1
 # The numbered sentences are printed first so the numbering can be compared.
 #
-# Mapping file: one line per sentence, "<sentence number> <claim number or none>".
+# Mapping file: one line per sentence, "<sentence number> <claim numbers or none>".
+# A sentence that renders two claims lists both, comma-separated: "3 3,4".
 # Blank lines and lines starting with '#' are ignored.
 #
 # Checks (each printed as "ok" or "FAIL"; exit 1 when any fails):
@@ -74,17 +75,17 @@ with open(mapping_path, encoding="utf-8") as fh:
             continue
         fields = line.split()
         if len(fields) != 2 or not fields[0].isdigit():
-            errors.append(f"mapping line {lineno} is not '<sentence number> <claim number or none>': {line}")
+            errors.append(f"mapping line {lineno} is not '<sentence number> <claim numbers or none>': {line}")
             continue
         n = int(fields[0])
         claim = fields[1]
-        if claim != "none" and not claim.isdigit():
-            errors.append(f"mapping line {lineno}: claim must be a number or none: {line}")
+        if claim != "none" and not all(c.isdigit() for c in claim.split(",")):
+            errors.append(f"mapping line {lineno}: claims must be numbers (comma-separated) or none: {line}")
             continue
         if n in mapping:
             errors.append(f"mapping line {lineno}: sentence {n} listed twice")
             continue
-        mapping[n] = None if claim == "none" else int(claim)
+        mapping[n] = None if claim == "none" else tuple(int(c) for c in claim.split(","))
 
 failed = False
 
@@ -121,9 +122,10 @@ else:
 
 # 3. every claim mapped
 by_claim = {}
-for n, c in mapping.items():
-    if c is not None:
-        by_claim.setdefault(c, []).append(n)
+for n, cs in mapping.items():
+    if cs is not None:
+        for c in cs:
+            by_claim.setdefault(c, []).append(n)
 unmapped_claims = [c for c in range(1, 13) if c not in by_claim]
 if unmapped_claims:
     fail("claims with no sentence: " + ", ".join(map(str, unmapped_claims)))
@@ -158,7 +160,7 @@ if not c10 or not c11:
 else:
     lo = min(c10 + c11)
     hi = max(c10 + c11)
-    between = sorted(n for n in range(lo + 1, hi) if mapping.get(n) not in (10, 11))
+    between = sorted(n for n in range(lo + 1, hi) if not (mapping.get(n) and set(mapping[n]) & {10, 11}))
     if between:
         fail("sentences between claims 10 and 11: " + ", ".join(map(str, between)))
     else:

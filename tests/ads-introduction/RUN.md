@@ -24,7 +24,7 @@ The Status part also lists the three relations whose Korean line has no connecti
 5. Ask for a draft of the Introduction.
 6. Ask for an explanation of the draft in Korean.
 7. Save the draft text to `results/draft.md` and the Korean explanation to `results/explanation.md`.
-8. Number the draft's sentences and write `results/mapping.txt`, one line per sentence: `<sentence number> <claim number or none>`. Use `none` for a sentence that states nothing recorded as a claim. Numbering rule, the same one `check.sh` uses: drop Markdown heading lines and blank lines, join the rest, split after `.`, `?` or `!` when followed by whitespace or the end of the text, count from 1. `check.sh` prints the sentences with their numbers; compare them with the mapping before reading its results.
+8. Number the draft's sentences and write `results/mapping.txt`, one line per sentence: `<sentence number> <claim numbers or none>`. A sentence that renders two claims lists both, comma-separated (`3 3,4`). Use `none` for a sentence that states nothing recorded as a claim. Numbering rule, the same one `check.sh` uses: drop Markdown heading lines and blank lines, join the rest, split after `.`, `?` or `!` when followed by whitespace or the end of the text, count from 1. `check.sh` prints the sentences with their numbers; compare them with the mapping before reading its results.
 9. Run the mechanical check from this folder:
 
        sh check.sh results/draft.md results/mapping.txt
