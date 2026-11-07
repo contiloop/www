@@ -24,7 +24,7 @@ The second command registers the folder as a marketplace named `www`; the third 
 
 ## After editing the skill
 
-The installed copy is a snapshot. Edits in the repository take effect only after:
+The installed copy is a snapshot. Edits in the repository take effect only after the version in `claude/.claude-plugin/plugin.json` is raised (the updater compares versions, not content; an unchanged version reports "already at the latest version" and keeps the old files) and then:
 
 ```bash
 claude plugin marketplace update www

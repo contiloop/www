@@ -20,7 +20,7 @@ All skill files are documents an AI reads. Each sentence must pass: it is not so
 - A rule is worded as a general rule, not as the case that taught it; an example, when one is needed, comes from a domain other than the one the rule was learned from, or two unlike examples are given.
 - No announcing sentences, no hedges that protect the writer, no closing summaries.
 - No hardcoded question lists, section templates or document-type checklists anywhere in the skill. Method and floors only. Violation: a numbered or bulleted list of literal questions, or a per-type section list, in any skill file.
-- No process vocabulary borrowed from other tools as mechanism names in any skill file (the words harness, 3-doc, gate, wave, lens, grounding, delta are the checked list).
+- No process vocabulary borrowed from other tools as mechanism names in any skill file (the words harness, 3-doc, gate, wave, lens, grounding, delta are the list a review checks for).
 
 ## Vocabulary
 

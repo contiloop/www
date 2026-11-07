@@ -1,0 +1,37 @@
+**Three relations kept as written**, on your word "Keep the three pending relations as written." These lines stand in the record's detailed logic:
+
+- `C4 → C5 by contrast`
+- `C6 → C7 by cause`
+- `C11 → C12 by condition`
+
+Status now reads `Introduction: level logic, draft drafted` and `proposals: none`. Git was not initialized, as you asked.
+
+**Draft of the Introduction**, written to `draft.md`:
+
+> Translation technology has advanced. However, existing translation services have cost and security issues. Small, domain-specific translation models that can run locally must therefore be developed. Training such a model requires parallel data. Constructing parallel data manually, however, is difficult. Another source of supervision must therefore be found. Teacher LLMs can provide high-quality translation supervision. But applying them to the entire dataset is expensive. Yet even a small amount of high-quality parallel data can improve the student model's translation performance. Which sentences, then, should receive the teacher's annotation budget when that budget is limited? To answer this question, we propose QE-guided Active Data Selection (ADS). ADS evaluates the student model's translations with a QE model and selects the sentences with low QE scores first.
+
+The self-check ran before the text was shown and changed nothing. The twelve sentences render C1 to C12 one each, in order. The two recorded conditions are present: "that can run locally" in sentence 3 and "when that budget is limited" in sentence 10. Nothing stands between the question and the proposal. The rejected additions are absent, and "alternative" is not used for the model in C3.
+
+**Independent check**: a reviewer that did not write the draft compared it against the record and returned one finding.
+
+- **Site**: "However, existing translation services have cost and security issues."
+- **Record**: C2 "However, existing services have cost and security issues." (기존 서비스)
+- **Draft**: the subject gains the modifier "translation", which the record and your words lack.
+- **Recommended disposition**: apply it, so the sentence reads "However, existing services have cost and security issues." The record names services without a modifier, and the sentence is a judgment about what you named. The draft stays as written until you say apply or keep.
+
+**초안이 말하는 내용** (기록의 열두 주장 순서대로):
+
+1. 번역 기술은 발전했다.
+2. 그러나 기존 서비스에는 비용·보안 문제가 있다.
+3. 그러므로 로컬에서 실행할 수 있는 작은 도메인 특화 번역 모델을 개발해야 한다. 초안은 이를 여러 선택지 중 하나가 아니라 개발해야 하는 필요로 쓴다.
+4. 이러한 모델을 학습하려면 병렬 데이터가 필요하다.
+5. 그러나 병렬 데이터를 사람이 직접 만드는 것은 어렵다.
+6. 따라서 다른 supervision 공급원을 찾아야 한다.
+7. Teacher LLM은 양질의 번역 supervision을 제공할 수 있다.
+8. 하지만 전체 데이터에 Teacher LLM을 적용하기에는 비용이 크다.
+9. 그런데 소량의 고품질 병렬 데이터만으로도 student 모델의 번역 성능을 개선할 수 있다.
+10. 그렇다면 제한된 비용으로 어떤 문장에 teacher의 비용을 써야 하는가? 초안은 이 문장을 질문 형태로 쓴다.
+11. 이 질문에 답하기 위해 QE-guided Active Data Selection(ADS)을 제안한다. 질문 바로 다음에 제안이 오고, 그 사이에 다른 문장은 없다.
+12. ADS는 student 모델의 번역을 QE 모델로 평가하고, QE 점수가 낮은 문장을 우선 선택한다.
+
+The one open item is the finding on sentence 2. Say apply or keep, and the draft changes only on that word.

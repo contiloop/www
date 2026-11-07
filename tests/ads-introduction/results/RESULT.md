@@ -14,3 +14,9 @@ Judged:
 Review of the skill files for hardcoded question lists and document-type templates (spec verification item 1): none found in `SKILL.md` or the seven references.
 
 Not covered by this run: the questioning half (reader and message lines were given to the fixture before the run), the stale and hand-edit flows, the manuscript path. The record's Status was changed by the run (Introduction draft `drafted`) and `draft.md` was written in this folder; both were restored so the fixture can be rerun.
+
+# Result: 2026-11-07, second run (plugin 0.1.1, after the review fixes)
+
+Same headless command, with "keep the three pending relations as written" added to the prompt. Transcript `transcript-2.txt`, draft `draft-2.md`, mapping `mapping-2.txt`.
+
+Mechanical: pass on all six lines. Judged: all five pass as in the first run. The independent check returned one finding this time (sentence 2 renders "existing services" as "existing translation services"); the skill showed it with a recommendation and left the draft unchanged pending the author's word, which is the specified handling. The session log shows two subagent dispatches (the independent check, plus one more; the transcript names only the check).

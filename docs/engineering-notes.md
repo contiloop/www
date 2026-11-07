@@ -1,6 +1,6 @@
 # Engineering notes
 
-- Symptom: an edit to a reference file has no effect in `/www:write`. Cause: the plugin runs from the installed snapshot under `~/.claude/plugins/cache/www/www/<version>/`, not from the repository. Response: `claude plugin marketplace update www` then `claude plugin update www@www`; verify with `claude plugin list`.
+- Symptom: an edit to a reference file has no effect in `/www:write`, and `claude plugin update www@www` says "already at the latest version". Cause: the plugin runs from the installed snapshot under `~/.claude/plugins/cache/www/www/<version>/`, and the updater compares the version in `claude/.claude-plugin/plugin.json`, not file contents. Response: raise the version, then `claude plugin marketplace update www` and `claude plugin update www@www`; verify with `diff -q <repo file> ~/.claude/plugins/cache/www/www/<new version>/<same path>`. The old version's folder stays in the cache.
 
 - Symptom: `scripts/check.sh` passes in a worktree that has reference files but no `SKILL.md`. Cause: by design the `SKILL.md` checks are skipped with a `note` line while the file is absent, so reference files can be written and checked before the entry file exists. Response: once `SKILL.md` exists the cross-checks run; treat the `note` line as a reminder, not a pass.
 
