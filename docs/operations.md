@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- Claude Code CLI (`claude`) 2.1 or later on the machine.
+- Claude Code CLI (`claude`, tested with 2.1.x) and/or Codex CLI (`codex`, tested with 0.162.x). For the skill's independent check, Codex needs its multi-agent feature on (`multi_agent = true` under `[features]` in `~/.codex/config.toml`); without it the skill reports that it could not dispatch the check and shows the draft after the self-check only. Writing an accepted rule to `~/.claude/www/writing-rules.md` from Codex needs a sandbox that allows writes outside the document folder (`sandbox_mode = "danger-full-access"`, or an approval when asked); a refused write is reported and the rule stays in the document's `design.md`.
 - `python3` on the path (macOS ships it with the command-line tools); `scripts/check.sh` and `tests/ads-introduction/check.sh` parse JSON and split sentences with it.
 - git.
 
@@ -12,6 +12,8 @@
 git clone <repository url> www
 ```
 
+Claude Code:
+
 ```bash
 claude plugin marketplace add /absolute/path/to/www
 ```
@@ -20,29 +22,51 @@ claude plugin marketplace add /absolute/path/to/www
 claude plugin install www@www
 ```
 
-The second command registers the folder as a marketplace named `www`; the third installs the plugin into `~/.claude/plugins/cache/www/www/<version>/` at user scope. The command `/www:write` is available in every Claude Code session afterwards. Reinstalling on another machine is these three commands; nothing else is configured.
+Codex:
+
+```bash
+codex plugin marketplace add /absolute/path/to/www
+```
+
+```bash
+codex plugin add www@www
+```
+
+Each pair registers the folder as a marketplace named `www` and installs the plugin into that tool's cache (`~/.claude/plugins/cache/www/www/<version>/`, `~/.codex/plugins/cache/www/www/<version>/`). The command is `/www:write` in Claude Code and `$write` in Codex; Codex loads plugins at session start. Reinstalling on another machine is these commands; nothing else is configured.
 
 ## After editing the skill
 
-The installed copy is a snapshot. Edits in the repository take effect only after the version in `claude/.claude-plugin/plugin.json` is raised (the updater compares versions, not content; an unchanged version reports "already at the latest version" and keeps the old files) and then:
+Edit only `src/skills/write/` and `platform/`. Then raise the version in all three `platform/*/plugin*.json` files (the installers compare versions, not content; an unchanged version keeps the old files), rebuild, check, commit:
 
 ```bash
-claude plugin marketplace update www
+sh scripts/build.sh && sh scripts/check.sh
+```
+
+Update the installed copies:
+
+```bash
+claude plugin marketplace update www && claude plugin update www@www
 ```
 
 ```bash
-claude plugin update www@www
+codex plugin remove www && codex plugin add www@www
 ```
 
-Run `sh scripts/check.sh` before updating; a failing structure check means the installed skill would name a missing reference or carry no frontmatter.
+`codex plugin marketplace upgrade` refreshes Git-sourced marketplaces only; for a local-path marketplace, remove and add the plugin. Verify an update with `diff -q src/skills/write/references/elicit.md <cache path>/skills/write/references/elicit.md`.
 
-## Structure check
+## Build and structure check
+
+```bash
+sh scripts/build.sh
+```
+
+Regenerates `claude/` and `codex/plugin/` from `src/` and `platform/`; refuses to run when the three manifest versions differ.
 
 ```bash
 sh scripts/check.sh
 ```
 
-Exit 0 when the manifests name `www`, every reference has a heading and body, `SKILL.md` has `name: write`, and `SKILL.md` and `references/` name each other completely. Prints one `ok`/`FAIL` line per check.
+Exit 0 when both marketplace manifests name `www`, the three platform manifests share one version, the source skill is well formed and cross-named, `openai.yaml` is present, and both committed packages equal a fresh build. Prints one `ok`/`FAIL` line per check.
 
 ## Acceptance test
 
@@ -58,7 +82,15 @@ Then copy `draft.md` to `results/draft.md`, extract the explanation to `results/
 sh tests/ads-introduction/check.sh tests/ads-introduction/results/draft.md tests/ads-introduction/results/mapping.txt
 ```
 
-Record the judged conditions in `results/RESULT.md`. The run changes the fixture's `design.md` Status and writes `draft.md` into the fixture folder; restore both before committing:
+Codex, headless, from `tests/ads-introduction/` (single quotes keep the shell from expanding `$write`):
+
+```bash
+codex exec --dangerously-bypass-approvals-and-sandbox '$write No need to initialize git here. Keep the three pending relations as written. Draft the Introduction section. After the draft and its checks, give me a Korean explanation of what the draft says.' < /dev/null > results/transcript-codex.txt 2>&1
+```
+
+Save the artifacts with the `-codex` suffix and run the same `check.sh`. Codex's session log under `~/.codex/sessions/<year>/<month>/<day>/` shows the independent check as a `spawn_agent` call.
+
+Record the judged conditions in `results/RESULT.md`. Each run changes the fixture's `design.md` Status and writes `draft.md` into the fixture folder; restore both before committing:
 
 ```bash
 git checkout -- tests/ads-introduction/design.md && rm -f tests/ads-introduction/draft.md
@@ -66,16 +98,16 @@ git checkout -- tests/ads-introduction/design.md && rm -f tests/ads-introduction
 
 ## Using the skill on a document
 
-Open a Claude Code session in the document's folder (or pass the folder path after the command) and run `/www:write` followed by the request in plain words. The skill creates `design.md` and `draft.md` there. `~/.claude/www/writing-rules.md` appears the first time a cross-document rule is accepted; deleting it drops those rules, nothing else.
+Open a Claude Code or Codex session in the document's folder (or pass the folder path after the command) and run `/www:write` or `$write` followed by the request in plain words. The skill creates `design.md` and `draft.md` there. `~/.claude/www/writing-rules.md` appears the first time a cross-document rule is accepted; deleting it drops those rules, nothing else.
 
 ## Uninstall
 
 ```bash
-claude plugin uninstall www@www
+claude plugin uninstall www@www && claude plugin marketplace remove www
 ```
 
 ```bash
-claude plugin marketplace remove www
+codex plugin remove www && codex plugin marketplace remove www
 ```
 
 Document folders and `~/.claude/www/writing-rules.md` are untouched by uninstalling.

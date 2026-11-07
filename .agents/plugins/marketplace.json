@@ -1,0 +1,20 @@
+{
+  "name": "www",
+  "interface": {
+    "displayName": "I Know How to Write"
+  },
+  "plugins": [
+    {
+      "name": "www",
+      "source": {
+        "source": "local",
+        "path": "./codex/plugin"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

@@ -27,7 +27,7 @@ headings and its Status values (`type`, `reader-and-topic`, `structure`, `plan`,
 
 ## Entry
 
-The document folder is the directory the command runs in, or the path given after `/www:write`.
+The document folder is the directory the command runs in, or the path given after the command.
 Everything after the command is natural language; there are no sub-commands and no required order of
 steps. Read `references/design-format.md` and `references/elicit.md` before anything else, then
 decide which of three cases the folder is in:

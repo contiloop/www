@@ -1,0 +1,7 @@
+interface:
+  display_name: "write"
+  short_description: "Settle a document's design with its author, then draft text that keeps it."
+  default_prompt: "Use write to work out this document with me: "
+
+policy:
+  allow_implicit_invocation: false

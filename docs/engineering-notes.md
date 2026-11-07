@@ -1,8 +1,14 @@
 # Engineering notes
 
-- Symptom: an edit to a reference file has no effect in `/www:write`, and `claude plugin update www@www` says "already at the latest version". Cause: the plugin runs from the installed snapshot under `~/.claude/plugins/cache/www/www/<version>/`, and the updater compares the version in `claude/.claude-plugin/plugin.json`, not file contents. Response: raise the version, then `claude plugin marketplace update www` and `claude plugin update www@www`; verify with `diff -q <repo file> ~/.claude/plugins/cache/www/www/<new version>/<same path>`. The old version's folder stays in the cache.
+- Symptom: an edit to a reference file has no effect in `/www:write` or `$write`, and the updater says the plugin is already at the latest version. Cause: both tools run from an installed snapshot (`~/.claude/plugins/cache/www/www/<version>/`, `~/.codex/plugins/cache/www/www/<version>/`) and compare the manifest version, not file contents. Response: raise the version in the three `platform/` manifests, rebuild, then update (Claude: `claude plugin marketplace update www && claude plugin update www@www`; Codex: `codex plugin remove www && codex plugin add www@www`); verify with `diff -q` against the cache path. Old version folders stay in the caches.
 
-- Symptom: `scripts/check.sh` passes in a worktree that has reference files but no `SKILL.md`. Cause: by design the `SKILL.md` checks are skipped with a `note` line while the file is absent, so reference files can be written and checked before the entry file exists. Response: once `SKILL.md` exists the cross-checks run; treat the `note` line as a reminder, not a pass.
+- Symptom: an edit made in `claude/skills/write/...` or `codex/plugin/skills/write/...` disappears. Cause: those folders are build outputs; `scripts/build.sh` replaces them whole and `scripts/check.sh` fails while they differ from a fresh build. Response: edit `src/skills/write/` and rebuild.
+
+- Symptom: a headless Codex run receives a prompt with the skill name missing. Cause: `$write` inside double quotes is expanded by the shell as an empty variable. Response: single-quote the prompt.
+
+- Symptom: `codex plugin marketplace list` fails with "marketplace root does not contain a supported manifest" for an unrelated marketplace, yet `codex plugin marketplace add` and `codex plugin add` for this repository succeed. Cause: the list command loads every configured marketplace and stops at the first broken one; add and install touch only the named one. Response: ignore for installing; remove the broken entry (`codex plugin marketplace remove <name>`) to make `list` work again.
+
+- How to confirm the independent check ran in a headless Codex run: the session log is `~/.codex/sessions/<year>/<month>/<day>/rollout-<timestamp>-<id>.jsonl`; `grep -c spawn_agent <log>` is non-zero when a subagent was dispatched. The Codex skill also ran the fixture's own `check.sh` before showing the draft, because the script sits in the folder; this is harmless but means the reply's "mechanical check passed" line comes from the skill, not from the reader.
 
 - Symptom: a headless run (`claude -p`) prints "no stdin data received in 3s" and waits. Cause: `-p` reads a prompt from stdin when stdin is a terminal or an open pipe. Response: redirect stdin from `/dev/null`.
 

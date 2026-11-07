@@ -1,0 +1,22 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "www",
+  "version": "0.2.0",
+  "description": "Discuss a document's message, structure, logic and wording with the author, record what is agreed, and draft text that keeps it.",
+  "author": { "name": "inertia" },
+  "keywords": ["writing", "academic-writing", "drafting", "elicitation", "codex", "claude-code", "skill"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "I Know How to Write",
+        "shortDescription": "Settle a document's design with its author, then draft text that keeps it.",
+        "longDescription": "One skill, write: settles a document's type, reader, message, structure, claim-by-claim logic and wording through questions and proposals, records what is agreed in design.md, and drafts draft.md so the text says exactly what was agreed.",
+        "developerName": "inertia",
+        "category": "Productivity",
+        "capabilities": ["Interactive", "Write"],
+        "defaultPrompt": ["Use write to work out this document with me before drafting it."],
+        "brandColor": "#2F6F4E"
+      }
+    }
+  }
+}

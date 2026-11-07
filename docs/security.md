@@ -1,6 +1,6 @@
 # Security
 
-The plugin runs inside Claude Code on the author's machine with the author's own permissions. There is no authentication, no network surface, no credential and no multi-user state. What is protected is the author's text and the author's authority over what the document says.
+The plugin runs inside Claude Code or Codex on the author's machine with the author's own permissions. There is no authentication, no network surface, no credential and no multi-user state. What is protected is the author's text and the author's authority over what the document says.
 
 ## Protected assets
 
@@ -25,6 +25,10 @@ The independent check receives only the section's Detailed logic entry, its Emph
 
 Every line written into parts 1 to 4 is quoted back in the same reply, so the conversation holds a complete trail of what entered the record and when. The skill offers once, at document start, to initialize git in the document folder so record and draft history is recoverable; the author may decline and the skill does not offer again. The reply that shows a draft names that the self-check ran and what it changed, and the independent check's dispatch and return are visible in the transcript, so a skipped check can be told from one that found nothing.
 
+## Codex sandbox
+
+Codex's default sandbox (`workspace-write`) lets the skill write `design.md` and `draft.md` in the document folder but refuses the write to `~/.claude/www/writing-rules.md`. The skill then reports the refusal and keeps the rule in the document's emphasis and wording notes; the author may allow the write by setting `sandbox_mode = "danger-full-access"` or by approving when asked. The independent check needs Codex's multi-agent feature; without it the skill reports that the check could not run.
+
 ## Headless runs
 
-Running the skill with `claude -p --dangerously-skip-permissions` (as the acceptance fixture does) removes the permission prompts for file writes and subagent dispatch inside the folder it runs in. Run it only in a fixture folder whose files are under version control and restore them afterwards.
+Running the skill with `claude -p --dangerously-skip-permissions` or `codex exec --dangerously-bypass-approvals-and-sandbox` (as the acceptance fixture does) removes the permission prompts for file writes and subagent dispatch. Run it only in a fixture folder whose files are under version control and restore them afterwards.
