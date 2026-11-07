@@ -4,6 +4,8 @@ A Claude Code plugin with one skill, `/www:write`. It works out a document with 
 
 ## Install
 
+Claude Code:
+
 ```bash
 claude plugin marketplace add /path/to/www
 ```
@@ -12,11 +14,23 @@ claude plugin marketplace add /path/to/www
 claude plugin install www@www
 ```
 
-From GitHub, replace the path with the repository URL. The same two commands reinstall the plugin on a new machine; nothing else is needed. The marketplace manifest is `.claude-plugin/marketplace.json`; the plugin itself is the `claude/` folder.
+Codex:
+
+```bash
+codex plugin marketplace add /path/to/www
+```
+
+```bash
+codex plugin add www@www
+```
+
+From GitHub, replace the path with the repository (URL for Claude Code, `owner/repo` for Codex). The same commands reinstall the plugin on a new machine. The command is `/www:write` in Claude Code and `$write` in Codex.
+
+Both packages, `claude/` and `codex/plugin/`, are generated from the one skill source in `src/skills/write/` by `scripts/build.sh` and are not edited by hand.
 
 ## Use
 
-Open a Claude Code session in the folder of the document you are writing and run `/www:write`, followed by what you want in your own words ("I want to write a research paper", "let's plan the structure", "go through the Introduction claim by claim", "draft the Introduction", "the third paragraph's emphasis is wrong"). There are no sub-commands. You can move between the document's overall design and a single sentence at any time.
+Open a Claude Code or Codex session in the folder of the document you are writing and run the command, followed by what you want in your own words ("I want to write a research paper", "let's plan the structure", "go through the Introduction claim by claim", "draft the Introduction", "the third paragraph's emphasis is wrong"). There are no sub-commands. You can move between the document's overall design and a single sentence at any time.
 
 Files, per document, in the document folder:
 
@@ -32,7 +46,7 @@ One file per user, created on the first rule you accept: `~/.claude/www/writing-
 sh scripts/check.sh
 ```
 
-Verifies the manifests, the skill's frontmatter and that every reference file is named by the skill.
+Verifies the manifests, the skill source's frontmatter, that every reference file is named by the skill, and that both generated packages match a fresh build.
 
 ## Acceptance test
 

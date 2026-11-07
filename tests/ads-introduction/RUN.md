@@ -8,7 +8,7 @@ The reader and message lines in Overview were given by the author on 2026-11-07 
 
 A headless variant of steps 2 to 6 (one `claude -p` command, stdin from `/dev/null`, the git offer pre-answered in the prompt) is in `docs/operations.md`; it produces the same artifacts.
 
-## Steps
+## Steps (Claude Code)
 
 1. Install the plugin from the repository root (the folder that holds `.claude-plugin/marketplace.json`):
 
@@ -29,6 +29,25 @@ A headless variant of steps 2 to 6 (one `claude -p` command, stdin from `/dev/nu
    It prints one `ok` or `FAIL` line per check and exits 0 only when all pass.
 
 10. Judge the remaining conditions below and record every result in `results/RESULT.md`: the date, one line per condition with `pass` or `fail`, and for a fail the sentence or transcript passage that shows it.
+
+## Steps (Codex)
+
+1. Install the plugin from the repository root:
+
+       codex plugin marketplace add <path to the repository root>
+       codex plugin add www@www
+
+   The first command accepts a local path or `owner/repo`. Codex loads plugins at session start; the independent check needs Codex's multi-agent feature (`multi_agent = true` in `~/.codex/config.toml`).
+2. Open a Codex session in this folder and invoke `$write`, then follow steps 4 to 6 of the Claude Code list with the same requests.
+3. Headless form, from this folder (the sandbox and approvals are bypassed because the skill writes `design.md` and `draft.md` here and dispatches a subagent; run it only in this version-controlled folder):
+
+       codex exec --dangerously-bypass-approvals-and-sandbox -o results/last-codex.md "$write No need to initialize git here. Keep the three pending relations as written. Draft the Introduction section. After the draft and its checks, give me a Korean explanation of what the draft says." < /dev/null > results/transcript-codex.txt 2>&1
+
+4. Save the artifacts with the `-codex` suffix: `results/draft-codex.md`, `results/explanation-codex.md`, `results/mapping-codex.txt`, and run
+
+       sh check.sh results/draft-codex.md results/mapping-codex.txt
+
+5. Judge the same pass conditions; for the independent check, Codex's session log under `~/.codex/sessions/<year>/<month>/<day>/` holds the subagent call. Record the run in `results/RESULT.md` with the platform named, then restore the fixture (`git checkout -- design.md`, remove `draft.md`).
 
 ## Pass conditions
 
