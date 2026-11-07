@@ -6,16 +6,14 @@
 - `python3` on the path (macOS ships it with the command-line tools); `scripts/check.sh` and `tests/ads-introduction/check.sh` parse JSON and split sentences with it.
 - git.
 
-## Install from a clone
+## Install
 
-```bash
-git clone <repository url> www
-```
+The repository is `https://github.com/contiloop/www` (public). To install from it:
 
 Claude Code:
 
 ```bash
-claude plugin marketplace add /absolute/path/to/www
+claude plugin marketplace add contiloop/www
 ```
 
 ```bash
@@ -25,14 +23,14 @@ claude plugin install www@www
 Codex:
 
 ```bash
-codex plugin marketplace add /absolute/path/to/www
+codex plugin marketplace add contiloop/www
 ```
 
 ```bash
 codex plugin add www@www
 ```
 
-Each pair registers the folder as a marketplace named `www` and installs the plugin into that tool's cache (`~/.claude/plugins/cache/www/www/<version>/`, `~/.codex/plugins/cache/www/www/<version>/`). The command is `/www:write` in Claude Code and `$write` in Codex; Codex loads plugins at session start. Reinstalling on another machine is these commands; nothing else is configured.
+To develop, clone the repository and give the clone's absolute path to the two `marketplace add` commands instead of `contiloop/www`. Each pair registers a marketplace named `www` and installs the plugin into that tool's cache (`~/.claude/plugins/cache/www/www/<version>/`, `~/.codex/plugins/cache/www/www/<version>/`). The command is `/www:write` in Claude Code and `$write` in Codex; Codex loads plugins at session start. Reinstalling on another machine is these commands; nothing else is configured.
 
 ## After editing the skill
 
@@ -52,7 +50,7 @@ claude plugin marketplace update www && claude plugin update www@www
 codex plugin remove www && codex plugin add www@www
 ```
 
-`codex plugin marketplace upgrade` refreshes Git-sourced marketplaces only; for a local-path marketplace, remove and add the plugin. Verify an update with `diff -q src/skills/write/references/elicit.md <cache path>/skills/write/references/elicit.md`.
+For a marketplace added from GitHub, `claude plugin marketplace update www` and `codex plugin marketplace upgrade www` fetch the new commit after it is pushed; for a local-path marketplace, `codex plugin marketplace upgrade` does nothing, so remove and add the plugin. Verify an update with `diff -q src/skills/write/references/elicit.md <cache path>/skills/write/references/elicit.md`.
 
 ## Build and structure check
 

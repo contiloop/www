@@ -7,7 +7,7 @@ A plugin for Claude Code and Codex with one skill, `write`. It works out a docum
 Claude Code:
 
 ```bash
-claude plugin marketplace add /path/to/www
+claude plugin marketplace add contiloop/www
 ```
 
 ```bash
@@ -17,14 +17,14 @@ claude plugin install www@www
 Codex:
 
 ```bash
-codex plugin marketplace add /path/to/www
+codex plugin marketplace add contiloop/www
 ```
 
 ```bash
 codex plugin add www@www
 ```
 
-From GitHub, replace the path with the repository (URL for Claude Code, `owner/repo` for Codex). The same commands reinstall the plugin on a new machine. The command is `/www:write` in Claude Code and `$write` in Codex.
+From a local clone, give the folder path instead of `contiloop/www`. The same commands reinstall the plugin on a new machine. The command is `/www:write` in Claude Code and `$write` in Codex.
 
 Both packages, `claude/` and `codex/plugin/`, are generated from the one skill source in `src/skills/write/` by `scripts/build.sh` and are not edited by hand.
 
