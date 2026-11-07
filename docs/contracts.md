@@ -4,7 +4,7 @@ What a user of the plugin, or a tool reading its files, can rely on.
 
 ## The command
 
-`/www:write [path] [request in natural language]`
+Claude Code: `/www:write [path] [request in natural language]`. Codex: `$write [path] [request in natural language]`. Same skill, same files, same behavior.
 
 - Input: an optional folder path (the document folder; default: the current directory) and free text. There are no sub-commands and no required order of requests.
 - Output: replies in the author's language that are one of three things: a question, a result (a recorded line quoted back, a proposal with alternatives, a draft with its check results, a finding), or a report of what blocks. Files written: `design.md` and `draft.md` in the document folder; `~/.claude/www/writing-rules.md` on the first accepted cross-document rule.
@@ -47,9 +47,17 @@ Markdown in the document's language, one `##` heading per section in the order o
 
 Markdown. Rules the author accepted at run time, each in general words, appended in acceptance order. Read with the shipped `references/writing-rules.md`; a rule here wins on conflict. Created by the skill on the first accepted rule; safe to edit or delete by hand.
 
+## `scripts/build.sh`
+
+`sh scripts/build.sh` from any directory. Reads `src/skills/write/` and `platform/`; writes `claude/` and `codex/plugin/` at the repository root, replacing them whole; with the environment variable `OUT_DIR` set, writes `$OUT_DIR/claude` and `$OUT_DIR/codex/plugin` instead and leaves the repository untouched. Exit 0 with the lines `built claude/`, `built codex/plugin/`, `build ok`. Exit non-zero, outputs untouched, when the three `platform/` manifest versions differ, when the source `SKILL.md` carries a platform key, or when an injected line did not land. Idempotent.
+
 ## `scripts/check.sh`
 
-`sh scripts/check.sh` from any directory. Exit 0: all checks pass. Exit 1: at least one `FAIL` line (manifest, reference heading or body, frontmatter, reference cross-check). Exit 1 with a message: `python3` missing. Output: one `ok`, `FAIL` or `note` line per check, then `all checks passed` or `some checks failed`.
+`sh scripts/check.sh` from any directory. Exit 0: all checks pass. Exit 1: at least one `FAIL` line (marketplace manifests, platform manifest versions, source reference heading or body, source frontmatter, reference cross-naming, `openai.yaml`, a package differing from a fresh build, injected lines missing or leaked). Exit 1 with a message: `python3` missing. Output: one `ok` or `FAIL` line per check, then `all checks passed` or `some checks failed`.
+
+## Codex manifests
+
+`.agents/plugins/marketplace.json`: marketplace `www`, one plugin `www` with `source.source: local`, `source.path: ./codex/plugin`, `policy.installation: AVAILABLE`. `codex/plugin/plugin.json`: Agent Plugins 1.0 form (`$schema`, `name`, `version`, `extensions.com.openai.interface`). `codex/plugin/.codex-plugin/plugin.json`: the `.codex-plugin` form with `skills: ./skills/` and a top-level `interface`. `codex/plugin/skills/write/agents/openai.yaml`: display strings and `policy.allow_implicit_invocation: false`. Display strings are free to change; the version, the name `www` and the skill path are not.
 
 ## `tests/ads-introduction/check.sh`
 

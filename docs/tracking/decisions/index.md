@@ -9,3 +9,4 @@
 | 0005 | [The record is English with the author's words verbatim beside each line](0005-record-language.md) |
 | 0006 | [A contradiction changes its line and asks about dependents](0006-contradiction-dependents.md) |
 | 0007 | [Drafting an unsettled section proposes several logics first](0007-propose-logics-first.md) |
+| 0008 | [One skill source, generated packages per platform](0008-single-source-build.md) |
