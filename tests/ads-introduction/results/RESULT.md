@@ -1,0 +1,14 @@
+# Result: 2026-11-07
+
+Run: headless (`claude -p --dangerously-skip-permissions`) in this folder with the plugin installed from the repository; prompt: `/www:write` with no git initialization, draft the Introduction, then a Korean explanation. Transcript in `transcript.txt`; draft in `draft.md`; explanation in `explanation.md`; mapping in `mapping.txt`.
+
+Mechanical (`check.sh`): pass on all six lines (12 sentences mapped 1 to 12; claim 3 sentence contains "locally" and neither "alternative" nor "option"; no sentence between claims 10 and 11).
+
+Judged:
+- Claim 3 as a need with the local condition: pass ("small, domain-specific translation models that can run locally must be developed").
+- No justification between the research question and ADS: pass (sentence 11 follows sentence 10 directly).
+- No caveat, implication, summary or takeaway without a claim: pass (every sentence maps to one claim).
+- Korean explanation contains no claim absent from the record: pass (twelve claims restated; the extra lines under 3, 10 and 11 describe how the draft rendered them, not new claims; "useful" absent).
+- Self-check before showing and independent check after: pass (both reported in the reply; the session log shows one subagent dispatch).
+
+Not covered by this run: the questioning half (reader and message lines were given to the fixture before the run), the stale and hand-edit flows, the manuscript path. The record's Status was changed by the run (Introduction draft `drafted`) and `draft.md` was written in this folder; both were restored so the fixture can be rerun.
