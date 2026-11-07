@@ -1,6 +1,6 @@
 # www: I Know How to Write
 
-A Claude Code plugin with one skill, `/www:write`. It works out a document with its author: the type, the reader, the message, the structure, each section's claim-by-claim logic and the wording are settled through questions and proposals, what is agreed is recorded in `design.md`, and `draft.md` is written so the text says exactly what was agreed. Claims keep their role and strength, conditions are not dropped, nothing is inserted between two agreed steps, no caveats or takeaways appear that the author did not ask for, and a correction is not made twice.
+A plugin for Claude Code and Codex with one skill, `write`. It works out a document with its author: the type, the reader, the message, the structure, each section's claim-by-claim logic and the wording are settled through questions and proposals, what is agreed is recorded in `design.md`, and `draft.md` is written so the text says exactly what was agreed. Claims keep their role and strength, conditions are not dropped, nothing is inserted between two agreed steps, no caveats or takeaways appear that the author did not ask for, and a correction is not made twice.
 
 ## Install
 
@@ -38,7 +38,7 @@ Files, per document, in the document folder:
 - `draft.md`: the text, one heading per section, in the document's language.
 - An existing manuscript in the folder is read, never modified; `draft.md` becomes the working copy.
 
-One file per user, created on the first rule you accept: `~/.claude/www/writing-rules.md`, the writing rules that carry over to later documents. It is read with the plugin's shipped rules in `claude/skills/write/references/writing-rules.md` and wins on conflict.
+One file per user, created on the first rule you accept: `~/.claude/www/writing-rules.md`, the writing rules that carry over to later documents. It is read with the plugin's shipped rules in `src/skills/write/references/writing-rules.md` and wins on conflict.
 
 ## Check the plugin
 
