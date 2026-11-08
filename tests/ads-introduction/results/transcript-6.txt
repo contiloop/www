@@ -1,0 +1,52 @@
+**Three relations kept as written.** They stand in part 3 unchanged, and the proposal is gone from Status:
+
+- `C4 → C5 by contrast` · `C6 → C7 by cause` · `C11 → C12 by condition`
+  author: Keep the three pending relations as written.
+
+Status now reads `Introduction: level logic, draft drafted`, `proposals: none`.
+
+**Self-check** ran on the whole section before the text was shown and changed nothing.
+
+**Independent check** returned four findings. Two the record already settles, and I applied them:
+
+1. Sentence 2, restored to the recorded subject and verb of C2.
+   Before: *However, using existing translation services raises cost and security issues.*
+   After: *However, existing translation services have cost and security issues.*
+2. Sentence 6, a phrase with no recorded line, and it rendered the C6 → C7 link as purpose where the record says cause.
+   Before: *Teacher LLMs can provide high-quality translation supervision for this purpose.*
+   After: *Teacher LLMs can provide high-quality translation supervision.*
+
+Two findings would move the record, so nothing was changed for them (sentences 8 and 11):
+
+3. Site: *…can improve the translation performance of the small model.* Record, C9: 소량의 고품질 병렬 데이터만으로도 **student**의 번역 성능을 개선할 수 있다. Draft says "the small model" where your line says student.
+4. Site: *ADS evaluates the small model's translations with a QE model…* Record, C12: ADS는 **student**의 번역을 QE 모델로 평가하고… Same substitution.
+
+I wrote "the small model" because no recorded claim tells the reader that the small model of C3 is the student, so "student" would arrive undefined. The question lands on C3 and on C9/C12:
+- (A) Add to C3 that the model is the student, e.g. C3 reads "…a small, locally deployable, domain-specific translation model (the student) must be developed"; then C9 and C12 say "the student". Recommended.
+- (B) Keep "the small model" in the Introduction; "student" first appears in Method.
+- (C) Write "student" in C9 and C12 without introducing it.
+
+One more question, lands on C11/C12: the record carries only the acronym QE. Expand on first use as "quality estimation (QE)"? (A) expand, recommended. (B) keep "QE" alone.
+
+**The section as it now stands** (`draft.md`):
+
+> ## Introduction
+>
+> Translation technology has advanced. However, existing translation services have cost and security issues. A small, domain-specific translation model that can run locally must therefore be developed.
+>
+> Training such a model requires parallel data, but constructing parallel data by hand is difficult. Another source of supervision is therefore needed. Teacher LLMs can provide high-quality translation supervision. However, applying them to the entire dataset is expensive. Yet even a small amount of high-quality parallel data can improve the translation performance of the small model.
+>
+> Which sentences, then, should receive the teacher's annotation budget when that budget is limited? To answer this question, we propose QE-guided Active Data Selection (ADS). ADS evaluates the small model's translations with a QE model and selects the sentences with low QE scores first.
+
+Sentence to claim: 1→C1, 2→C2, 3→C3, 4→C4+C5, 5→C6, 6→C7, 7→C8, 8→C9, 9→C10, 10→C11, 11→C12. Do you object to either applied fix?
+
+**한국어 설명** (기록의 열두 개 주장에 대조해 확인했습니다):
+
+첫 단락: 번역 기술은 발전했다(C1). 그러나 기존 번역 서비스를 사용하기에는 비용·보안 문제가 있다(C2). 그러므로 로컬에서 실행할 수 있는 작은 도메인 특화 번역 모델을 개발해야 한다(C3). 이 문장은 선택지가 아니라 필요로 쓰였고, "로컬에서 실행할 수 있는"이라는 조건이 들어 있습니다.
+
+둘째 단락: 이러한 모델을 학습하려면 병렬 데이터가 필요하다(C4). 그러나 병렬 데이터를 사람 손으로 만들기는 어렵다(C5). 따라서 다른 supervision 공급원이 필요하다(C6). Teacher LLM은 양질의 번역 supervision을 제공할 수 있다(C7). 그러나 전체 데이터에 Teacher LLM을 쓰기에는 비용이 크다(C8). 그런데 소량의 고품질 병렬 데이터만으로도 작은 모델의 번역 성능을 개선할 수 있다(C9).
+
+셋째 단락: 그렇다면 제한된 비용으로 어떤 문장에 teacher의 비용을 써야 하는가(C10, 질문). 이 질문에 답하기 위해 QE-guided Active Data Selection(ADS)을 제안한다(C11). ADS는 작은 모델의 번역을 QE 모델로 평가하고, QE 점수가 낮은 문장을 우선 선택한다(C12).
+
+질문과 ADS 제안 사이에 저품질 문장을 고르는 이유를 설명하는 문장은 없고, 작은 모델이 유용하다는 판단도 없습니다. "작은 모델"은 위 질문 3·4가 결정될 때까지 student 대신 쓴 표현입니다.
+exit=0

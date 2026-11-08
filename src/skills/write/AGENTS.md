@@ -4,7 +4,7 @@
 
 This folder is the skill's source: `SKILL.md` (the entry file, the only one loaded at start) and `references/` (seven files, each loaded at the step it governs, and `types/`, one rules file per document type). Everything the agent does under `/www:write` (Claude Code) or `$write` (Codex) is specified here. `scripts/build.sh` copies this folder, minus this notes file, into `claude/skills/write/` and `codex/plugin/skills/write/`; those copies are never edited. The folder owns the record format, the questioning method, the manuscript path, the writing rules, drafting, the checks, and the type rules files.
 
-Not this folder's scope: the manifests and overlays (`platform/`, `.claude-plugin/`, `.agents/`), the build and structure check (`scripts/`), the generated packages (`claude/`, `codex/`), the acceptance fixture (`tests/`), and the author's run-time files (`design.md`, `draft.md` in document folders; ), which the skill writes but which are not part of the plugin.
+Not this folder's scope: the manifests and overlays (`platform/`, `.claude-plugin/`, `.agents/`), the build and structure check (`scripts/`), the generated packages (`claude/`, `codex/`), the acceptance fixture (`tests/`), and the author's run-time files (`design.md` and `draft.md` in document folders), which the skill writes but which are not part of the plugin.
 
 ## Boundaries
 
