@@ -7,3 +7,5 @@ Decision: the self-check runs on every draft and revision; a fresh subagent that
 Alternatives: an independent check on every revision (cost on every small change); self-check only (one reader, the one that drifted); applying findings automatically and listing them (a second unseen drift, and the author loses the decision).
 
 Consequences: a few-sentence revision is never independently checked; the author reads every finding; the dispatch must be visible in the transcript so a skipped check can be told from an empty one.
+
+Superseded by 0009: findings the record already settles (category A) are applied to the draft and shown before and after; findings whose fix would move the record (category B) are asked.
