@@ -88,12 +88,8 @@ The skill's domain is one author, one document per folder, and two files the aut
 
 ## Type rules
 
-- The document type is one of `presentation script | research paper | report | essay | other`, named by the record's type line.
+- The document type is one of `presentation script | research paper | report | essay | other`, named by the record's type line. All five are handled by the same method; no type has a template, and a document's structure is discussed from its purpose.
 - Each type except `other` has a rules file in the plugin, `references/types/<type>.md`: `presentation-script.md`, `research-paper.md`, `report.md`, `essay.md`. A file holds numbered rules in the form of the shipped rules file, each with its test and its disposition.
 - When the record's type line names a type with a file, the file is read with the shipped rules file for every draft, revision and restatement, and the reply that quotes the type line back names the file. A draft or restatement checked without it violates the rule.
 - Where a type rule conflicts with a rule of the shipped rules file, the type rule wins.
 - A rule enters a type file only in the repository: appended at the end of the file, the three manifest versions raised, the packages rebuilt. A type file, installed or in the repository, written by the skill at run time violates the rule.
-
-## Document types
-
-- Research papers, reports and presentations are handled by the same method; no document type has a template. The structure of a report or presentation is discussed from its purpose.

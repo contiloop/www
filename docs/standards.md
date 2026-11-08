@@ -8,7 +8,7 @@ Rules whose violation breaks the plugin, the acceptance test or the author's tru
 - `.claude-plugin/marketplace.json` lists one plugin, `www`, source `./claude`; `.agents/plugins/marketplace.json` lists one plugin, `www`, local path `./codex/plugin`. Violation: the structure check fails.
 - The three manifests under `platform/` carry one identical version; a release raises all three. Violation: the build refuses to run and the structure check fails.
 - The source `SKILL.md` frontmatter has `name: write` and `description` and no platform keys; the build inserts `disable-model-invocation: true` and `allowed-tools: Read, Edit, Write, Bash, Grep, Glob, Agent, AskUserQuestion` into the Claude copy only. Violation: the build or the structure check fails.
-- Every file in `src/skills/write/references/` is named by the source `SKILL.md` by the path `references/<name>.md`, and every such path exists; every reference starts with one top-level heading on line 1 and has a non-empty body. Violation: `scripts/check.sh` exits non-zero.
+- Every file directly in `src/skills/write/references/` is named by the source `SKILL.md` by the path `references/<name>.md`, and every such path exists; every reference starts with one top-level heading on line 1 and has a non-empty body. `references/types/` holds exactly `presentation-script.md`, `research-paper.md`, `report.md` and `essay.md`, each with a heading on line 1 and a body, and `SKILL.md` names the folder as `references/types/<type>.md`. Violation: `scripts/check.sh` exits non-zero.
 - `scripts/check.sh` exits 0 before any commit that touches `src/`, `platform/`, `claude/` or `codex/`. Violation: a broken package is installed on the next update.
 - `claude plugin validate .` passes before a release.
 

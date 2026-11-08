@@ -88,6 +88,20 @@ else
   done
 fi
 
+# 3b. Type rules files: exactly the four, each with a heading and a body, named in SKILL.md
+TYPES="$REFS/types"
+for t in presentation-script research-paper report essay; do
+  f="$TYPES/$t.md"
+  if [ ! -f "$f" ]; then bad "src references/types/$t.md is missing"; continue; fi
+  if ! head -n 1 "$f" | grep -q '^# '; then bad "src references/types/$t.md: first line is not a top-level heading"; continue; fi
+  if [ "$(sed '1d' "$f" | tr -d '[:space:]' | wc -c)" -eq 0 ]; then bad "src references/types/$t.md: empty body"; continue; fi
+  ok "src references/types/$t.md has a heading and a body"
+done
+for f in "$TYPES"/*; do
+  case "$(basename "$f")" in presentation-script.md|research-paper.md|report.md|essay.md) ;; *) bad "src references/types/$(basename "$f") is not one of the four type files";; esac
+done
+if grep -q 'references/types/<type>.md' "$SKILL"; then ok "src SKILL.md names references/types/<type>.md"; else bad "src SKILL.md does not name references/types/<type>.md"; fi
+
 # 4. Codex skill metadata
 YAML="$PLAT/codex/skills/write/agents/openai.yaml"
 if [ -f "$YAML" ] && grep -q '^ *allow_implicit_invocation: false *$' "$YAML"; then

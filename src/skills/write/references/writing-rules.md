@@ -77,7 +77,7 @@ Apply these rules to every sentence you draft or revise in `draft.md`, and to ev
 
 ## The type rules files
 
-31. `references/types/<type>.md` holds the rules for one document type, from the set `presentation script | research paper | report | essay`; `other` has no file. The type is read from the record's type line when the type is recorded, and the file named in the reply that quotes the line back. Test: when the record holds a type and the file exists, it was read; a draft checked without it is unchecked.
+31. `references/types/<type>.md` holds the rules for one document type, from the set `presentation script | research paper | report | essay`; `other` has no file. The type is read from the record's type line when the type is recorded, and the file named by path in the reply that quotes the line back. Test: when the record holds a type and the file exists, it was read; a draft checked without it is unchecked.
 32. Read the type rules file with this file at every drafting and restatement step. Where a rule in it conflicts with a rule here, the type rules file wins, because it is the narrower one.
 33. A rule the author states or accepts while writing a document is written into the record's emphasis and wording notes, where this document's checks read it, and shown to the author in general words (rule 30) as the line that would enter this file or the type rules file. A correction the author made, by itself, is not an accepted rule; a rule you inferred, by itself, is not an accepted rule.
 34. The installed copies of this file and the type rules files are never edited at run time; they are replaced on plugin update, and a rule enters them through the repository, where the author adds it and raises the version.

@@ -26,7 +26,7 @@ Not this folder's scope: the manifests and overlays (`platform/`, `.claude-plugi
 ## Patterns
 
 - Each reference opens by saying what it governs and against what authority (the record), then gives method and floors, then the dispositions. A reference never scripts the conversation.
-- A rule in `references/writing-rules.md` is numbered and carries its test and its disposition (cut, rewrite, ask the author). Add new rules at the end of the group they belong to; other files cite rule numbers (26, 27, 30 are cited), so do not renumber.
+- A rule in `references/writing-rules.md` is numbered and carries its test and its disposition (cut, rewrite, ask the author). Add new rules at the end of the group they belong to; other files cite rule numbers (1, 2, 18, 26, 27, 30, 33, 34 are cited), so do not renumber.
 - Examples in any file come from a domain other than machine translation or NLP papers; the author's own case taught the rules and must not become their only illustration.
 - Cross-file pointers are written as the path `references/<name>.md`, never as a prose name alone.
 

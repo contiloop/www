@@ -71,8 +71,10 @@ One conversation, in whatever order the author's requests take, moving between t
   remark, made unprompted, is accepted by being made; your proposal is accepted only by the author's
   word, and a line you supplied inside it only by the author's word on that line.
 - Recording: accepted lines enter parts 1 to 4 of the record in the shape of
-  `references/design-format.md` and are quoted back in the same reply; everything pending, declined
-  or about the state of the work goes to Status. A contradiction changes its line with a note of what
+  `references/design-format.md` and are quoted back in the same reply; a type line that names a type
+  with a file under `references/types/` is quoted back with that file named by path (rule 31 of
+  `references/writing-rules.md`); everything pending, declined or about the state of the work goes to
+  Status. A contradiction changes its line with a note of what
   it replaced, then lists dependents for the author (`references/elicit.md`).
 - Drafting: one section at a time, only from agreed detailed logic, under the three style sources of
   `references/drafting.md`, which draws on `references/writing-rules.md` and the type rules file of
@@ -83,8 +85,8 @@ One conversation, in whatever order the author's requests take, moving between t
   (category B) is a question (`references/review.md`).
 - Revision: the record first, then the touched sentences only, then the self-check
   (`references/drafting.md`). A correction that states a rule beyond this document is proposed in
-  general words and, on acceptance, recorded in part 4 and shown as the line for the repository's
-  rules file or type rules file.
+  general words and, on acceptance, recorded in part 4 and shown as the line for the shipped rules
+  file or the type rules file.
 
 Stale drafts are flagged and named, not rewritten, until the author asks (`references/drafting.md`).
 Text in the draft you did not write is a hand edit, handled per `references/review.md`.
@@ -99,7 +101,7 @@ Text in the draft you did not write is a hand edit, handled per `references/revi
 | `references/existing-manuscript.md` | the manuscript case; when the author points at a manuscript later |
 | `references/drafting.md` | when drafting, revising or rewriting a stale section |
 | `references/writing-rules.md` | with drafting.md, and before any restatement |
-| `references/types/<type>.md` | with writing-rules.md, once the record's type line names a type that has a file (`presentation-script`, `research-paper`, `report`, `essay`); it wins over writing-rules.md on conflict |
+| `references/types/<type>.md` | with writing-rules.md, once the record's type line names a type that has a file (`presentation-script`, `research-paper`, `report`, `essay`) |
 | `references/review.md` | at the start of every turn; before any draft, revision or restatement is shown |
 
 ## Rules held without opening a reference
@@ -127,7 +129,7 @@ Text in the draft you did not write is a hand edit, handled per `references/revi
 - A sentence with no recorded claim behind it is not written; if the argument breaks without it, the
   missing step is a question for the record, not a sentence in the draft.
 - Nothing is written into the plugin's own files. A rule the author accepts while writing enters the
-  record's part 4 and is shown as the line to add to the repository's rules file or type rules file.
+  record's part 4 and is shown as the line to add to the shipped rules file or the type rules file.
 
 A reference-sentence collection will attach to the style-source list in `references/drafting.md` and
 nowhere else.

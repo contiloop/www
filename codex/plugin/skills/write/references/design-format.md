@@ -19,7 +19,7 @@ Parts 1 to 4 hold only what the author has accepted. Part 5 holds everything tha
 
 ### 1 Overview
 
-One entry each: the document type; the reader and the venue and what that reader will judge from the text; the central topic; the message the document must leave the reader with; the overall logical progression in a few lines. The progression is the chain of the document as a whole, one line per step, not a table of contents.
+One entry each: the document type, whose line names one of `presentation script`, `research paper`, `report`, `essay` or `other` and may say more after it (the name, with its space as a hyphen, is the `<type>` of `references/types/<type>.md`); the reader and the venue and what that reader will judge from the text; the central topic; the message the document must leave the reader with; the overall logical progression in a few lines. The progression is the chain of the document as a whole, one line per step, not a table of contents.
 
 ### 2 Structure and section plans
 
