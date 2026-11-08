@@ -50,3 +50,9 @@ Mechanical: pass on all six lines (12 sentences mapped 1 to 12). Judged: all fiv
 Same command, after the final review's fixes to `review.md`, `elicit.md`, `drafting.md` and `SKILL.md` were installed. Transcript `transcript-5.txt`, draft `draft-5.md`, mapping `mapping-5.txt`, explanation `explanation-5.md`.
 
 Mechanical: pass on all six lines (12 sentences mapped 1 to 12). Judged: all five pass. The independent check returned two findings the record settles (a clause with no recorded line that also misdirected "since"; "existing translation services" narrowing C2's "existing services"); both were applied before the text was shown, the first as the whole paragraph before and after, the second as the sentence before and after, each with its reason, followed by the whole section and the question whether the author objects. One subagent dispatch in the session log. The draft's section heading is `#`, as in the Codex run (see `docs/tracking/findings.md`).
+
+# Result: 2026-11-08, Codex rerun on plugin 0.3.0 after the review fixes
+
+Same `codex exec` command with the reviewed text installed. Transcript `transcript-codex-3.txt`, last message `last-codex-3.md`, draft `draft-codex-3.md`, mapping `mapping-codex-3.txt`, explanation `explanation-codex-3.md`.
+
+Mechanical: pass on all six lines (11 sentences; sentence 6 renders claims 6 and 7, mapped `6,7`). Judged: all five pass. The independent check returned no finding; the reply reports both checks and the session log shows the `spawn_agent` call. The section heading is `#` again (findings file).
