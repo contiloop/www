@@ -1,0 +1,51 @@
+**Record.** The three pending relations are now accepted as written and the proposal is removed from Status (`proposals: none`). The lines they confirm in part 3, Introduction:
+
+- `C4 → C5 by contrast`
+- `C6 → C7 by cause`
+- `C11 → C12 by condition`
+
+Author's words: "Keep the three pending relations as written." Record check: the Progression and the Introduction's unfolding carry a relation at every join; nothing departs.
+
+**Self-check** ran on the draft before anything was shown and changed nothing on its first pass.
+
+**Independent check** (fresh reviewer, given only the Introduction's part 3, part 4 and the draft text) returned three findings. All three are settled by the record, so I applied them and ran the self-check again; the second pass changed nothing. It confirmed all twelve claims present in order, roles kept, both recorded conditions present, no rejected addition under any wording, and the struck phrase "offers an alternative" absent.
+
+1. Site: "Given this need, Teacher LLMs can provide high-quality translation supervision." Record: `C6 → C7 by cause`. Draft: "Given" reads as consequence or condition, not cause.
+   Before: *Given this need, Teacher LLMs can provide high-quality translation supervision.*
+   After: *This need motivates the use of Teacher LLMs, which can provide high-quality translation supervision.*
+   Reason: the connective now carries the recorded cause relation.
+
+2. Site: "…we propose QE-guided Active Data Selection (ADS), which evaluates the translations of the small model with a QE model and selects the sentences with low QE scores first." Record: `C11 → C12 by condition`. Draft: the relative clause gives an elaboration sense, no condition.
+3. Site: the same sentence, "the translations of the small model". Record: C12, 「ADS는 student의 번역을 QE 모델로 평가하고」. Draft: the author's subject "student" was replaced.
+   Both land in the third paragraph, shown whole.
+   Before: *Which sentences, then, should receive the teacher's annotation budget when that budget is limited? To address this question, we propose QE-guided Active Data Selection (ADS), which evaluates the translations of the small model with a QE model and selects the sentences with low QE scores first.*
+   After: *Which sentences, then, should receive the teacher's annotation budget when that budget is limited? To address this question, we propose QE-guided Active Data Selection (ADS). Under ADS, a sentence is selected first when a QE model gives the student model's translation of it a low score.*
+   Reason: "when … a low score" renders the recorded condition, and "student" is the author's recorded term.
+
+**The Introduction as it now stands** (written to `draft.md`; Status: Introduction draft `drafted`):
+
+> Translation technology has advanced. However, using existing translation services poses cost and security problems. A small, domain-specific translation model that can run locally must therefore be developed.
+>
+> Training such a model requires parallel data. Constructing parallel data manually, however, is difficult. An alternative source of supervision is therefore needed. This need motivates the use of Teacher LLMs, which can provide high-quality translation supervision. But applying them to the entire dataset is expensive. Yet even a small amount of high-quality parallel data can improve translation performance.
+>
+> Which sentences, then, should receive the teacher's annotation budget when that budget is limited? To address this question, we propose QE-guided Active Data Selection (ADS). Under ADS, a sentence is selected first when a QE model gives the student model's translation of it a low score.
+
+Sentence-to-claim mapping: sentences 1 to 12 render C1 to C12 one each, in order; no sentence is without a recorded line. If you object to any of the three fixes, the earlier sentence is restored; "continue" leaves them.
+
+**초안이 말하는 내용 (한국어 설명, 기록의 C1~C12에 맞춰 확인함)**
+
+1. 번역 기술은 발전했다.
+2. 그러나 기존 번역 서비스를 사용하기에는 비용과 보안 문제가 있다.
+3. 그러므로 로컬에서 실행할 수 있는 작은 도메인 특화 번역 모델을 개발해야 한다. 초안은 이것을 선택지가 아니라 필요로 서술한다.
+4. 이런 모델을 학습하려면 병렬 데이터가 필요하다.
+5. 그러나 병렬 데이터를 사람이 직접 만들기는 어렵다.
+6. 따라서 다른 supervision 공급원이 필요하다.
+7. 이 필요 때문에 Teacher LLM을 쓰게 되며, Teacher LLM은 양질의 번역 supervision을 제공할 수 있다.
+8. 그러나 전체 데이터에 Teacher LLM을 사용하기에는 비용이 크다.
+9. 그런데 소량의 고품질 병렬 데이터만으로도 번역 성능을 개선할 수 있다.
+10. 그렇다면 제한된 비용으로 어떤 문장에 teacher의 비용을 써야 하는가? 초안은 이것을 질문 문장으로 쓴다.
+11. 이 질문에 답하기 위해 QE-guided Active Data Selection(ADS)을 제안한다.
+12. ADS는 student 모델의 번역을 QE 모델로 평가하고, QE 점수가 낮은 문장을 우선 선택한다.
+
+연구 질문(10)과 ADS 제안(11) 사이에는 아무 문장도 없고, 작은 모델이 유용하다는 판단은 초안과 이 설명 어디에도 들어 있지 않다.
+exit=0
