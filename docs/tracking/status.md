@@ -2,7 +2,7 @@
 
 ## Done and verified
 
-- Skill `write`: one source in `src/skills/write/` (`SKILL.md`, seven references), platform-neutral text. `scripts/build.sh` generates the Claude package (`claude/`) and the Codex package (`codex/plugin/`), both committed; `scripts/check.sh` exit 0 including the fresh-build comparison; `claude plugin validate .` passes. Version 0.2.0 installed locally in both Claude Code (`/www:write`) and Codex (`$write`).
+- Skill `write`: one source in `src/skills/write/` (`SKILL.md`, eight references), platform-neutral text. `scripts/build.sh` generates the Claude package (`claude/`) and the Codex package (`codex/plugin/`), both committed; `scripts/check.sh` exit 0 including the fresh-build comparison; `claude plugin validate .` passes. Version 0.3.0 installed locally in both Claude Code (`/www:write`) and Codex (`$write`).
 - The Codex update path after a version bump (`codex plugin remove www@www && codex plugin add www@www`): exercised on 2026-11-08 for 0.3.0; `codex plugin remove www` without the marketplace suffix is refused.
 - Acceptance fixture `tests/ads-introduction/`: three Claude Code runs (0.1.0, 0.1.1, 0.2.0) and one Codex run (0.2.0) on 2026-11-07, each with the mechanical check 6/6 and all five judged conditions passing, the independent-check dispatch confirmed in the session logs. Results in `tests/ads-introduction/results/RESULT.md`.
 - README with install for both platforms, use, build, check and test steps. Public repository `github.com/contiloop/www`; both marketplaces can be added as `contiloop/www`.

@@ -58,7 +58,7 @@ www/
 Read `docs/standards.md`, `docs/engineering-notes.md` and `src/skills/write/AGENTS.md`. Then, by kind of work:
 
 - Changing how the record is written or read: `src/skills/write/references/design-format.md` first; the Status value sets and the claim notation are a contract that `tests/ads-introduction/design.md` and `docs/contracts.md` depend on.
-- Changing drafting or checks: `references/drafting.md` and `references/review.md`, then rerun the acceptance fixture per `tests/ads-introduction/RUN.md`; `writing-rules.md` rule numbers 26, 27 and 30 are cited elsewhere, so do not renumber.
+- Changing drafting or checks: `references/drafting.md` and `references/review.md`, then rerun the acceptance fixture per `tests/ads-introduction/RUN.md`; `writing-rules.md` rule numbers are cited by `drafting.md`, `review.md`, `cases.md` and `elicit.md` (1, 2, 3, 18, 26, 27, 30, 33, 35), so do not renumber.
 - Changing questioning: `references/elicit.md`; the fixture does not exercise it, so try the change live on a real document.
 - Adding a style source (the planned reference-sentence collection): the list in `references/drafting.md`, nowhere else.
 - Changing the case memory (the store, the case shape, the offer, reuse): `references/cases.md` first; the fixture does not reach it, so try the change live on a real document.
