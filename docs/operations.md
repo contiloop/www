@@ -47,7 +47,7 @@ claude plugin marketplace update www && claude plugin update www@www
 ```
 
 ```bash
-codex plugin remove www && codex plugin add www@www
+codex plugin remove www@www && codex plugin add www@www
 ```
 
 For a marketplace added from GitHub, `claude plugin marketplace update www` and `codex plugin marketplace upgrade www` fetch the new commit after it is pushed; for a local-path marketplace, `codex plugin marketplace upgrade` does nothing, so remove and add the plugin. Verify an update with `diff -q src/skills/write/references/elicit.md <cache path>/skills/write/references/elicit.md`.
@@ -105,7 +105,7 @@ claude plugin uninstall www@www && claude plugin marketplace remove www
 ```
 
 ```bash
-codex plugin remove www && codex plugin marketplace remove www
+codex plugin remove www@www && codex plugin marketplace remove www
 ```
 
 Document folders, `~/.claude/www/writing-rules.md` and `~/.claude/www/cases/` are untouched by uninstalling.
