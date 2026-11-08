@@ -7,3 +7,5 @@ Decision: the plugin ships `references/writing-rules.md`, seeded from the author
 Alternatives: reading the vault at run time (the skill then depends on a server that exists on one machine); writing accepted rules into the plugin's own files (lost on the next update, or inert in the repository until reinstall); per-document rules only (the correction is repeated in the next document).
 
 Consequences: promoting a run-time rule into the shipped file is a deliberate repository edit, not something the skill does; the user file is a plain Markdown file the author may edit or delete.
+
+Superseded by 0011: rules live in the plugin's `references/writing-rules.md` and `references/types/<type>.md`, changed only through the repository; an accepted rule is recorded in the document's part 4 and shown as the line to add there.

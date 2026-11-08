@@ -26,7 +26,7 @@ All skill files are documents an AI reads. Each sentence must pass: it is not so
 
 ## Vocabulary
 
-The skill files use one vocabulary; a synonym for any of these in a skill file is a defect: the author; the record (`design.md`); the draft (`draft.md`); the document folder; proposal; accepted / rejected; stale; claim; relation; condition; emphasis and wording notes; the shipped rules file (`references/writing-rules.md`); the user rules file (`~/.claude/www/writing-rules.md`); restatement (an explanation, summary or translation of a draft); case (one file in the case store `~/.claude/www/cases/`, written per finished document); content remark (an author remark that adds or changes a claim, relation, condition or emphasis, or says what the reader should hear); understanding remark (an author remark that explains what was meant or corrects the skill's reading, and enters nothing into parts 1 to 4); category A finding (an independent-check finding the record already settles, applied to the draft and shown); category B finding (one whose fix would move the record, asked); reading check (comparison 8 of the self-check, which reads the section in order against the recorded chain as rendered so far).
+The skill files use one vocabulary; a synonym for any of these in a skill file is a defect: the author; the record (`design.md`); the draft (`draft.md`); the document folder; proposal; accepted / rejected; stale; claim; relation; condition; emphasis and wording notes; the shipped rules file (`references/writing-rules.md`); the type rules file (`references/types/<type>.md`); restatement (an explanation, summary or translation of a draft); content remark (an author remark that adds or changes a claim, relation, condition or emphasis, or says what the reader should hear); understanding remark (an author remark that explains what was meant or corrects the skill's reading, and enters nothing into parts 1 to 4); category A finding (an independent-check finding the record already settles, applied to the draft and shown); category B finding (one whose fix would move the record, asked); reading check (comparison 8 of the self-check, which reads the section in order against the recorded chain as rendered so far).
 
 Fixed value sets, spelled exactly:
 - document-wide levels: `type`, `reader-and-topic`, `structure`, each `agreed` or `open`
@@ -34,16 +34,16 @@ Fixed value sets, spelled exactly:
 - draft state: `none | drafted | stale`
 - claim roles: need, cause, judgment, question, proposal, description
 - relation kinds: cause, contrast, condition, consequence, question/answer
-- task type of a case: `presentation script | research paper | report | essay | other`
+- document type: `presentation script | research paper | report | essay | other`
 - independent-check finding categories: `A | B`
 
 ## File ownership inside the skill
 
-Each reference owns its topic and is the only place that states its tests; other files refer to it by path rather than restating. The style-source list exists once, in `references/drafting.md`. The user rules file path appears in `SKILL.md`, `drafting.md`, `writing-rules.md` and `elicit.md` only as a path, with its rules stated in `writing-rules.md`.
+Each reference owns its topic and is the only place that states its tests; other files refer to it by path rather than restating. The style-source list exists once, in `references/drafting.md`. The rules of a document type are stated only in `references/types/<type>.md`; other files name the file by path. Violation: a type rule, or a style source, stated in a second file.
 
 ## Run-time write boundary
 
-The skill writes four paths and nothing else: `design.md` and `draft.md` in the document folder, `~/.claude/www/writing-rules.md`, and `~/.claude/www/cases/<date>-<folder name>.md`, the last only on the author's word after the whole case was shown. Violation: any write into the plugin's installed folder, a manuscript file, or another path; a case file written without the author's word.
+The skill writes two paths and nothing else: `design.md` and `draft.md` in the document folder. Violation: any write into the plugin's installed folder, a manuscript file, or any path outside the document folder.
 
 ## Verification before a change to the skill is kept
 
