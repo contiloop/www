@@ -33,7 +33,7 @@ Fixed value sets, spelled exactly:
 - per-section level: `none | plan | logic | wording`
 - draft state: `none | drafted | stale`
 - claim roles: need, cause, judgment, question, proposal, description
-- relation kinds: cause, contrast, condition, consequence, question/answer
+- relation kinds: cause, contrast, condition, consequence, question/answer, elaboration
 - join notation in a Progression or an `Unfolds:` block: the first step bare; every later step `→ by <relation kind> <step>` or `→ (declined) <step>`
 - document type: `presentation script | research paper | report | essay | other`
 - independent-check finding categories: `A | B`

@@ -38,7 +38,7 @@ C1 (role) <English line>
   → C2 by <relation>, holds when <condition>
 ```
 
-Role ∈ {need, cause, judgment, question, proposal, description}. Relation ∈ {cause, contrast, condition, consequence, question/answer}. The `author:` line is omitted when the author typed the English line. A replacing line carries `(replaces: <old line, shortened>)`.
+Role ∈ {need, cause, judgment, question, proposal, description}. Relation ∈ {cause, contrast, condition, consequence, question/answer, elaboration}. The `author:` line is omitted when the author typed the English line. A replacing line carries `(replaces: <old line, shortened>)`.
 
 Status fields:
 

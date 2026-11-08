@@ -27,7 +27,7 @@ The tests for each of these, with the disposition when a sentence fails, are the
 - A claim's role and strength: a `need` is written as a necessity, a `judgment` as the author's judgment, a `question` as a question; nothing stronger and nothing weaker than the recorded line.
 - Every condition the record attaches to a relation, in the sentence that renders the relation, even when the sentence reads well without it. A condition the author stated once is as binding as a claim.
 - No condition the record does not state. A relation recorded without a condition is rendered without one; when you believe the relation needs a condition to hold, the condition is a question to the author under the three grounds of `references/elicit.md`, in a draft and in a proposal alike, and a condition you supplied to make a sentence carry has replaced the author's argument with yours.
-- The connective that renders a relation has that relation's sense: a `consequence` is not written with a contrast word, a `cause` not with "and".
+- The connective that renders a relation has that relation's sense: a `consequence` is not written with a contrast word, a `cause` not with "and", an `elaboration` not with a causal or contrast word (rule 2 of the shipped rules file).
 - The recorded order of claims. Two claims may share a sentence or be split across two; they do not swap, in drafting or in revision; a revision that cannot keep the order readable in place is a question, not a reorder.
 - Rejected additions stay out, under any wording. Before showing text, search it for the kind of sentence each rejected addition names.
 - Distinctions recorded as a corrected pair are honored in every section and every later draft, not only where the correction came from.
