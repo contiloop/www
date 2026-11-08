@@ -44,3 +44,9 @@ New in 0.3.0, as specified: the independent check returned one finding (C6 → C
 Same `codex exec` command, no case store present. Transcript `transcript-codex-2.txt`, last message `last-codex-2.md`, draft `draft-codex-2.md`, mapping `mapping-codex-2.txt`, explanation `explanation-codex-2.md`.
 
 Mechanical: pass on all six lines (12 sentences mapped 1 to 12). Judged: all five pass. Claim 3 is a need with "can run locally"; the ADS sentence follows the research question directly; every sentence renders one claim; the Korean explanation restates the record and adds no claim, "유용" absent; the reply reports the self-check and the independent check, and the Codex session log (`~/.codex/sessions/2026/11/08/rollout-2026-11-08T14-57-02-*.jsonl`) shows the `spawn_agent` call. The independent check returned no finding, so neither category's handling is exercised in this run. The draft's section heading is `#` rather than the `##` the draft contract states; recorded in `docs/tracking/findings.md`.
+
+# Result: 2026-11-08, Claude Code rerun on plugin 0.3.0 after the review fixes
+
+Same command, after the final review's fixes to `review.md`, `elicit.md`, `drafting.md` and `SKILL.md` were installed. Transcript `transcript-5.txt`, draft `draft-5.md`, mapping `mapping-5.txt`, explanation `explanation-5.md`.
+
+Mechanical: pass on all six lines (12 sentences mapped 1 to 12). Judged: all five pass. The independent check returned two findings the record settles (a clause with no recorded line that also misdirected "since"; "existing translation services" narrowing C2's "existing services"); both were applied before the text was shown, the first as the whole paragraph before and after, the second as the sentence before and after, each with its reason, followed by the whole section and the question whether the author objects. One subagent dispatch in the session log. The draft's section heading is `#`, as in the Codex run (see `docs/tracking/findings.md`).
