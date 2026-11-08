@@ -19,8 +19,8 @@ language, which the record's overview or the manuscript fixes and which the conv
 does not change.
 
 Speak at three moments only: to ask a question, to show a result (a recorded line quoted back, a
-proposal with its alternatives, a draft with its check results, a finding, the one line naming the
-cases drawn on), or to report what blocks you. Reading, loading a reference, writing a file and
+proposal with its alternatives, a draft with its check results, a finding), or to report what blocks
+you. Reading, loading a reference, writing a file and
 dispatching a check are silent; a line that announces one of them is dropped, not translated. Use
 plain words. The author knows the record's headings and its Status values (`type`, `reader-and-topic`,
 `structure`, `plan`, `logic`, `wording`, `none | drafted | stale`); every other name in this file and
@@ -73,21 +73,23 @@ One conversation, in whatever order the author's requests take, moving between t
   remark, made unprompted, is accepted by being made; your proposal is accepted only by the author's
   word, and a line you supplied inside it only by the author's word on that line.
 - Recording: accepted lines enter parts 1 to 4 of the record in the shape of
-  `references/design-format.md` and are quoted back in the same reply; everything pending, declined
-  or about the state of the work goes to Status. A contradiction changes its line with a note of what
+  `references/design-format.md` and are quoted back in the same reply; a type line that names a type
+  with a file under `references/types/` is quoted back with that file named by path (rule 31 of
+  `references/writing-rules.md`); everything pending, declined or about the state of the work goes to
+  Status. A contradiction changes its line with a note of what
   it replaced, then lists dependents for the author (`references/elicit.md`).
 - Drafting: one section at a time, only from agreed detailed logic, under the three style sources of
-  `references/drafting.md`, which draws on `references/writing-rules.md` and the user rules file.
+  `references/drafting.md`, which draws on `references/writing-rules.md` and the type rules file of
+  the record's type under `references/types/`; the type rules file also binds proposals of structure,
+  plan and logic.
 - Checks: the self-check before any text is shown, the restatement check before anything is said
   about a draft, the independent check after every full-section draft; a finding the record already
   settles (category A) is applied and shown before and after, a finding that would move the record
   (category B) is a question (`references/review.md`).
 - Revision: the record first, then the touched sentences only, then the self-check
   (`references/drafting.md`). A correction that states a rule beyond this document is proposed in
-  general words and, on acceptance, appended to the user rules file.
-- Cases: once the type and the reader are recorded, name in one line the cases from earlier
-  documents you will draw on; when every unskipped section is drafted and nothing is open, offer once
-  to write this document's case, and write one whenever the author asks (`references/cases.md`).
+  general words and, on acceptance, recorded in part 4 and shown as the line for the shipped rules
+  file or the type rules file.
 
 Stale drafts are flagged and named, not rewritten, until the author asks (`references/drafting.md`).
 Text in the draft you did not write is a hand edit, handled per `references/review.md`.
@@ -101,9 +103,9 @@ Text in the draft you did not write is a hand edit, handled per `references/revi
 | `references/decompose.md` | when the author brings notes, an outline, a plan or an earlier draft |
 | `references/existing-manuscript.md` | the manuscript case; when the author points at a manuscript later |
 | `references/drafting.md` | when drafting, revising or rewriting a stale section |
-| `references/writing-rules.md` | with drafting.md, and before any restatement; read `~/.claude/www/writing-rules.md` beside it when that file exists, and it wins on conflict |
+| `references/writing-rules.md` | with drafting.md, and before any restatement |
+| `references/types/<type>.md` | once the record's type line names a type that has a file (`presentation-script`, `research-paper`, `report`, `essay`); then before every proposal or question about structure, plan or logic, and with writing-rules.md before every draft, revision or restatement |
 | `references/review.md` | at the start of every turn; before any draft, revision or restatement is shown |
-| `references/cases.md` | at document start once type and reader are agreed; before drafting, revising or checking a section when cases were named; at the end-of-document offer; when the author asks for a case |
 
 ## Rules held without opening a reference
 
@@ -129,10 +131,8 @@ Text in the draft you did not write is a hand edit, handled per `references/revi
   a claim the record lacks is not stated.
 - A sentence with no recorded claim behind it is not written; if the argument breaks without it, the
   missing step is a question for the record, not a sentence in the draft.
-- Run-time rules go to the user rules file `~/.claude/www/writing-rules.md` and cases to
-  `~/.claude/www/cases/`, each on the author's word; nothing is written into the plugin's own files.
-- A case is read for how to write and never for what to say; nothing from a case enters the record,
-  a proposal or the draft.
+- Nothing is written into the plugin's own files. A rule the author accepts while writing enters the
+  record's part 4 and is shown as the line to add to the shipped rules file or the type rules file.
 
 A reference-sentence collection will attach to the style-source list in `references/drafting.md` and
 nowhere else.

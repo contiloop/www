@@ -53,7 +53,7 @@ The skill's domain is one author, one document per folder, and two files the aut
 - Transitions inside a sentence (connectives, endings, back-references) are drafting choices; a standalone sentence needs a recorded line. No condition is supplied by the skill, in a draft or in a proposal.
 - A claim keeps its role and strength; the recorded order of claims is the draft's order and claims are never reordered; rejected additions stay out under any wording; a corrected word pair is honored in every section; a kept expression is used verbatim.
 - The draft is in the document's own language regardless of the conversation's language.
-- Style sources are exactly three: the shipped rules file, the user rules file (when it exists; wins on conflict), and the document's emphasis and wording notes. A fourth source is added to that list and nowhere else.
+- Style sources are exactly three: the shipped rules file, the type rules file of the record's type (when the type has one; it wins over the shipped file on conflict), and the document's emphasis and wording notes. A fourth source is added to that list and nowhere else.
 
 ## Checks
 
@@ -69,7 +69,7 @@ The skill's domain is one author, one document per folder, and two files the aut
 ## Revision and corrections
 
 - A correction changes the part of the text it concerns and nothing else. The record is updated first (corrected pair, condition, rejected addition, replaced claim, moved emphasis), quoted back, then the draft is revised and self-checked.
-- A correction that states a rule beyond this document is proposed in general words; on the author's acceptance of the wording it is appended to the user rules file `~/.claude/www/writing-rules.md`, created on the first such rule. The plugin's shipped rules file is never written at run time.
+- A correction that states a rule beyond this document is proposed in general words, with whether it belongs to every document or to this document's type; on the author's acceptance of the wording it is recorded in the document's part 4, where this document's checks read it, and shown as the line to add to the repository's `writing-rules.md` or type rules file. The plugin's files are not written at run time; until the line is added in the repository and released, the rule guards this document only. A reply that writes a rule anywhere but part 4 violates the rule.
 - After a correction, the next text sent is checked for the same kind of addition before it goes out.
 
 ## Stale drafts
@@ -86,16 +86,10 @@ The skill's domain is one author, one document per folder, and two files the aut
 - A manuscript (a text file the author points at, or text files present with no record) is read-only; `draft.md` is the working copy, made unchanged before the walk, and the author is told. When several text files are present and none is pointed at, the skill asks which one.
 - The reconstruction of its structure and argument enters Status as pending proposals; parts 1 to 4 stay empty until the author accepts a line. Each reconstructed line ends as accepted, changed, restored or open; silence is open, not acceptance.
 
-## Cases
+## Type rules
 
-- The case store is `~/.claude/www/cases/`, one Markdown file per document folder, named `<YYYY-MM-DD>-<document folder name>.md`, created on the author's word. It is the fourth and last run-time write path, with `design.md`, `draft.md` and `~/.claude/www/writing-rules.md`.
-- One case per document, keyed by the folder's absolute path in the case's `Document:` line. When the document is finished again, the case is rewritten whole under the same file name with the `updated` date changed; a second file for the same folder violates the rule.
-- A case has these parts in this order: `# Case: <title>`; `Document: <folder path> — <title>; written <date>, updated <date>`; `## Task type`, one of `presentation script | research paper | report | essay | other`, with the record's type line copied verbatim beside it; `## Task context`; `## Materials`; `## First-draft problems`; `## Author feedback`, verbatim, understanding remarks included; `## Revisions made`; `## Lessons` with `### Given or accepted by the author` and `### Inferred by the skill`, kept apart. A lesson the author did not state under the author's heading violates the rule.
-- The offer to write a case is made once per session, when every unskipped section is `drafted` and no question or proposal is open; a case is also written on request. The whole case is shown and written on the author's word; a case written without the author's word, or without being shown whole, violates the rule. A declined offer goes to Status as a declined open question: `- Whether to record this document as a case; lands in the case store, not in the document; nothing in the text depends on it — declined`. A refused write (the Codex sandbox) is reported and the case text stays in the reply.
-- Reuse: once the record holds type and reader, the skill reads every case in the store, matches on task type first and then on purpose, reader and kind of material, and names the cases it draws on in one line; the author may say to ignore one for the session. The matched cases are read again before drafting, revising or checking a section.
-- A case shapes how the skill writes, never what the document argues: nothing from a case enters the record, a proposal or a draft; a case may raise a question, never supply the answer. Rule 35 of the shipped rules file states this test.
-- A lesson becomes a general rule only through rules 30 and 33: proposed in general words when the case is written and the wording passes rule 30, and at reuse when the same lesson stands in two or more matching cases; it is appended to the user rules file only on the author's acceptance of the wording.
-
-## Document types
-
-- Research papers, reports and presentations are handled by the same method; no document type has a template. The structure of a report or presentation is discussed from its purpose.
+- The document type is one of `presentation script | research paper | report | essay | other`, named by the record's type line. All five are handled by the same method; no type has a template, and a document's structure is discussed from its purpose.
+- Each type except `other` has a rules file in the plugin, `references/types/<type>.md`: `presentation-script.md`, `research-paper.md`, `report.md`, `essay.md`. A file holds numbered rules in the form of the shipped rules file, each with its test and its disposition.
+- A type rule applies at the level it names: structure and section plans, a section's logic, or the sentences of the draft. When the record's type line names a type with a file, the file is read when the type is recorded (the reply that quotes the type line back names the file), before every proposal or question about structure, plan or logic, and with the shipped rules file for every draft, revision and restatement. A proposal, draft or restatement made without it violates the rule.
+- Where a type rule conflicts with a rule of the shipped rules file, the type rule wins.
+- A rule enters a type file only in the repository: appended at the end of the file, the three manifest versions raised, the packages rebuilt. A type file, installed or in the repository, written by the skill at run time violates the rule.

@@ -56,3 +56,9 @@ Mechanical: pass on all six lines (12 sentences mapped 1 to 12). Judged: all fiv
 Same `codex exec` command with the reviewed text installed. Transcript `transcript-codex-3.txt`, last message `last-codex-3.md`, draft `draft-codex-3.md`, mapping `mapping-codex-3.txt`, explanation `explanation-codex-3.md`.
 
 Mechanical: pass on all six lines (11 sentences; sentence 6 renders claims 6 and 7, mapped `6,7`). Judged: all five pass. The independent check returned no finding; the reply reports both checks and the session log shows the `spawn_agent` call. The section heading is `#` again (findings file).
+
+# Result: 2026-11-08, Claude Code and Codex runs on plugin 0.4.0 (type rules files)
+
+Same commands; the record's type line names a research paper, so both runs read `references/types/research-paper.md` (visible in both session logs) beside the shipped rules file. Claude Code: transcript `transcript-6.txt`, draft `draft-6.md`, mapping `mapping-6.txt`, explanation `explanation-6.md`. Codex: `transcript-codex-4.txt`, `last-codex-4.md`, `draft-codex-4.md`, `mapping-codex-4.txt`, `explanation-codex-4.md`.
+
+Mechanical: pass on all six lines in both (Claude 11 sentences, sentence 4 mapped `4,5`; Codex 12 sentences). Judged: all five pass in both. Claude Code's independent check returned four findings: two the record settles, applied and shown as the sentence before and after with the reason; two that would move the record ("the small model" where the author's lines say student, in C9 and C12), shown as questions with alternatives and left unapplied, which is the first run to exercise that category. One subagent dispatch in the Claude log, one `spawn_agent` in the Codex log. Codex's section heading is `#` again (findings file).

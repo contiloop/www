@@ -75,13 +75,9 @@ Apply these rules to every sentence you draft or revise in `draft.md`, and to ev
 29. The next text sent after a correction is the most likely place for the same addition to recur, including a text that records the correction itself. Test: before sending it, read it once only for the kind of thing just struck.
 30. When a correction states a rule that applies beyond this document, propose the rule to the author in general words that cover every situation where the same reasoning holds, not as the case that taught it. Add an example only when the rule is hard to grasp without one, taken from a different domain than the one the correction came from, or give two unlike examples. Test: would the rule as worded apply to a report, a grant proposal and a product manual alike? If it names this document's subject, reword.
 
-## The user rules file
+## The type rules files
 
-31. `~/.claude/www/writing-rules.md` holds rules the author accepted at run time. It is created when the author accepts the first such rule, and never earlier.
-32. Read it with this file at every drafting and restatement step. Where a rule in it conflicts with a rule here, the user rules file wins.
-33. A rule is appended to it only after you proposed the rule in general words (rule 30) and the author accepted the wording. A correction the author made, by itself, is not an accepted rule; a rule you inferred, by itself, is not an accepted rule.
-34. The installed copy of this file is never edited at run time; it is replaced on plugin update, and anything written into it is lost then.
-
-## Cases
-
-35. A case from the case store (`references/cases.md`) is read for how to write and never for what to say. Test: name the recorded line behind the sentence; a case is not one → cut. A claim, condition, figure, definition or sentence found in a case and absent from this document's record is as unavailable as one you would invent, and the sentence that carries it goes with it.
+31. `references/types/<type>.md` holds the rules for one document type, from the set `presentation script | research paper | report | essay`; `other` has no file. A type rule applies at the level it names: the structure and section plans, a section's logic, or the sentences of the draft, and each rule says which. The file is read when the type is recorded, named by path in the reply that quotes the type line back, and read again before every proposal of structure, plan or logic, every question at those levels, and every draft, revision and restatement. Test: when the record holds a type and the file exists, it was read at the level being worked; a proposal or draft made without it is unchecked.
+32. Where a rule in the type rules file conflicts with a rule here, or with a general method of `references/elicit.md` or `references/drafting.md`, the type rules file wins, because it is the narrower one.
+33. A rule the author states or accepts while writing a document is written into the record's emphasis and wording notes, where this document's checks read it, and shown to the author in general words (rule 30) as the line that would enter this file or the type rules file. A correction the author made, by itself, is not an accepted rule; a rule you inferred, by itself, is not an accepted rule.
+34. The installed copies of this file and the type rules files are never edited at run time; they are replaced on plugin update, and a rule enters them through the repository, where the author adds it and raises the version.

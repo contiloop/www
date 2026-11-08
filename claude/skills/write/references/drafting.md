@@ -44,12 +44,10 @@ Drafting may raise questions, under the three grounds of `references/elicit.md`:
 While drafting and revising, every sentence is tested against exactly these three style sources, named here and nowhere else:
 
 1. The shipped rules file, `references/writing-rules.md`.
-2. The user rules file, `~/.claude/www/writing-rules.md`, read when it exists; where its rule conflicts with the shipped file, the user rules file wins.
+2. The type rules file for the record's type, `references/types/<type>.md`, when the type has one; where its rule conflicts with the shipped file, the type rules file wins.
 3. The document's emphasis and wording notes in part 4 of the record: the conditions that must survive, the claims to emphasize, the corrected pairs, the kept expressions, the rejected additions.
 
 A future collection of reference sentences is added to this list and nowhere else.
-
-Cases named per `references/cases.md` are read again before a section is drafted, revised or checked; they are not a style source and change drafting choices only (how a term is introduced, where a condition sits in a sentence, what a first-time reader needs first), never what a sentence says, and no claim, relation, condition, figure, definition or sentence from a case enters this document's record, proposals or draft.
 
 The first two sources are rules that hold across documents; the third is the author's decision for this document and is not weighed against them: a kept expression stands even when a rule in the first two sources would reword it, because the author chose the words knowing the sentence.
 
@@ -73,7 +71,7 @@ Then update the record before touching the draft, so the correction exists where
 
 Quote the recorded lines back in the same reply. Then revise, then run the self-check of `references/review.md` on the section before showing the revised text. The section's draft state stays `drafted`.
 
-When the correction states a rule that applies beyond this document, propose the rule in general words that cover every situation where the same reasoning holds (rule 30 of the shipped rules file), and on the author's acceptance of the wording append it to the user rules file, creating the file on the first rule. The shipped rules file is never written to: it is replaced on plugin update. The record still receives the document-specific entry above; the user rule guards later documents, the record entry is what this document's checks compare against.
+When the correction states a rule that applies beyond this document, propose the rule in general words that cover every situation where the same reasoning holds (rule 30 of the shipped rules file), and say whether it belongs to every document or to this document's type. On the author's acceptance of the wording, the rule enters this document's emphasis and wording notes, where this document's checks read it, and the reply shows it as the line to add to `references/writing-rules.md` or to the type rules file in the repository; the plugin's own files are never written at run time, since the installed copy is replaced on update (rules 33 and 34 of the shipped rules file). Adding the line to the repository and raising the version is the author's step, and until it is taken the rule guards this document only.
 
 ## Stale drafts
 
