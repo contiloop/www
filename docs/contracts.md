@@ -18,17 +18,17 @@ Progression notation, in part 1, and section plan notation, in part 2:
 
 ```
 - Progression:
-  <first step>
-  → by <relation> <next step>
-  → (declined) <next step>
+    <first step>
+    → by <relation> <next step>
+    → (declined) <next step>
 
 1. <Section> — <what it covers>
-   Unfolds:
-     <first step>
-     → by <relation> <next step>
+    Unfolds:
+    <first step>
+    → by <relation> <next step>
 ```
 
-The first step of a block is bare; every later step begins `→ by <relation> ` with a relation from the set below, or `→ (declined) ` when the author declined to name the join (that boundary is drafted with no connective). A Progression step is claim-sized and may span sections; a section may have no step of its own. An `Unfolds:` step groups the claims the section's part 3 entry details, and the relation at a step boundary is written again in part 3 between the two claims. The join from one section to the next is written in the Progression only. A line of arrows without relations, or a list of topics, is neither a Progression nor an unfolding.
+The first step of a block is bare; every later step begins `→ by <relation> ` with a relation from the set below, or `→ (declined) ` when the author declined to name the join (that boundary is drafted with no connective; in part 3 the line between the two claims reads `→ C<n> (declined)`). A Progression step is claim-sized and may span sections; a section may have no step of its own. An `Unfolds:` step groups the claims the section's part 3 entry details, and the relation at a step boundary is written again in part 3 between the two claims. The join from one section to the next is written in the Progression only. A line of arrows without relations, or a list of topics, is neither a Progression nor an unfolding.
 
 Detailed logic notation, per section:
 

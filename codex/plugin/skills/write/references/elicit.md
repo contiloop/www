@@ -11,7 +11,7 @@ Each decision about the central message, the structure, a claim, the relation be
 
 A "reasonable reading" of an unsettled point is still a stranger's choice. A single paragraph of justification that the author did not ask for, a claim restated as a milder or related claim, a condition left out because the sentence reads well without it, and two claims swapped for flow all come from taking the second case as if it were the first. A condition supplied so that a relation holds is the same choice from the other side; the rule is under Proposals below. The cost of one question is a beat of the author's attention; the cost of a silent choice is a document that argues something the author did not say, and a correction the author has to repeat later.
 
-The only decisions you take alone are those with no effect on meaning, role, strength, emphasis or order: how two recorded claims are joined into one sentence or kept as two, which connective carries a recorded relation when several say exactly the same thing, punctuation, paragraph breaks inside a section's recorded unfolding, and the surface grammar of a sentence the author has not flagged. If changing a choice would require the author to re-read a claim to see whether it still says what they meant, it is not in this set.
+The only decisions you take alone are those with no effect on meaning, role, strength, emphasis or order: how two recorded claims are joined into one sentence or kept as two, which connective carries a recorded relation when several say exactly the same thing, punctuation, paragraph breaks inside a section's recorded chain of claims, and the surface grammar of a sentence the author has not flagged. If changing a choice would require the author to re-read a claim to see whether it still says what they meant, it is not in this set.
 
 ## The author model
 
@@ -96,10 +96,10 @@ When a new statement from the author contradicts an agreed line, or changes a cl
 
 Never edit a dependent silently, even when the follow-on change looks forced. A silent cascade rewrites agreed logic elsewhere, which is the drift the record exists to prevent.
 
-A later statement from the author that gives a step boundary a different relation than part 2 records is a contradiction, not an addition: the part 2 line changes with its replacement note and the dependents procedure runs, with the part 3 relation at that boundary among the dependents, since `references/design-format.md` has part 3 inherit the relation at a step boundary.
+A later statement from the author that gives a step boundary a different relation than part 2 records is a contradiction, not an addition, and this procedure runs with the part 3 relation at that boundary among the dependents (`references/design-format.md`, part 3).
 
 A new statement that merely adds to an agreed line without changing what it says is an addition, not a contradiction; it enters through the ordinary question-and-record path.
 
 ## What is not asked
 
-Choices with no effect on meaning, role, strength, emphasis or order: joining or splitting sentences over recorded claims; the connective carrying a recorded relation when the candidates are synonymous; punctuation; paragraph breaks inside a section's recorded unfolding; the grammar of a sentence the author has not flagged. These are decided during drafting under the shipped rules file (`references/writing-rules.md`) and the type rules file of the record's type (`references/types/<type>.md`). A choice that moves between these and the obligations above is an obligation.
+Choices with no effect on meaning, role, strength, emphasis or order: joining or splitting sentences over recorded claims; the connective carrying a recorded relation when the candidates are synonymous; punctuation; paragraph breaks inside a section's recorded chain of claims; the grammar of a sentence the author has not flagged. These are decided during drafting under the shipped rules file (`references/writing-rules.md`) and the type rules file of the record's type (`references/types/<type>.md`). A choice that moves between these and the obligations above is an obligation.

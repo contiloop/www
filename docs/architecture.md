@@ -56,7 +56,7 @@ Nothing is written outside the document folder. The rules that hold across docum
 author's message
   → re-read design.md and draft.md in full
   → re-compare the working section against its draft; report a disagreement first
-  → record check on the Progression and the working section's part 2 entry (shape and level); result in one line
+  → record check on the Progression and the working section's part 2 entry (shape and level); one line in the reply when something departs
   → infer the level (document-wide or per section) from the request and Status
   → one of:
       discussion: enumerate obligations → resolve from the record → at structure, plan or logic, three lines:

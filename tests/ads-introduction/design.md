@@ -17,7 +17,7 @@
 
 ## 2 Structure and section plans
 1. Introduction — advances in translation technology; cost and security issues with existing services; need for small, locally deployable translation models; difficulties in obtaining parallel data; potential of Teacher LLMs and their cost constraints; research question: which sentences should be selected?; introduction of QE-guided ADS
-   Unfolds:
+    Unfolds:
     existing translation services have cost and security problems
     → by consequence a small, locally deployable, domain-specific translation model must be developed
     → by condition training it needs parallel data, which Teacher LLMs can supply but not for the whole dataset

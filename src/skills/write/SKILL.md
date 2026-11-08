@@ -143,7 +143,7 @@ Text in the draft you did not write is a hand edit, handled per `references/revi
 - Every restatement (explanation, summary, translation) is checked against the record, not the draft;
   a claim the record lacks is not stated.
 - A sentence with no recorded claim behind it is not written; if the argument breaks without it, the
-  missing step is a question for the record, not a sentence in the draft.
+  missing claim is a question for the record, not a sentence in the draft.
 - Nothing is written into the plugin's own files. A rule the author accepts while writing enters the
   record's part 4 and is shown as the line to add to the shipped rules file or the type rules file.
 
