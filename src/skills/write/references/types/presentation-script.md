@@ -1,0 +1,3 @@
+# Rules for a presentation script
+
+Rules for every sentence of a script spoken to listeners who do not read along. Read with `references/writing-rules.md` whenever the record's type line names a presentation script; where a rule here conflicts with a rule there, this file wins, because it is the narrower one. Each rule is numbered and carries its test and its disposition (cut, rewrite, ask the author), in the form of the shipped rules file. A rule enters this file in the repository, on the author's word, never at run time; a rule the author accepts while writing a document is recorded in that document's emphasis and wording notes and shown as the line to add here.

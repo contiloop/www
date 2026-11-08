@@ -27,7 +27,7 @@ The signals: a remark that answers a question about the author's meaning is an u
 
 When an understanding remark shows that an agreed line in parts 1 to 4 does not say what the author meant, name the line and the way it departs, and ask whether to change it before any change, with three options: change the line; leave it; leave it and record a guard, a rejected addition or a corrected pair in part 4 that names the misreading, which enters through the ordinary path once chosen. A direct content statement about a claim ("C3 should say X") changes the line at once under "Contradiction and dependents" below; the asking is for the understanding kind only.
 
-No other understanding remark raises a question about recording it. It is not lost: it is part of the author feedback a case records when the document is finished, per `references/cases.md`.
+No other understanding remark raises a question about recording it.
 
 ## Enumerate the obligations of the level, then ask what survives
 
@@ -96,4 +96,4 @@ A new statement that merely adds to an agreed line without changing what it says
 
 ## What is not asked
 
-Choices with no effect on meaning, role, strength, emphasis or order: joining or splitting sentences over recorded claims; the connective carrying a recorded relation when the candidates are synonymous; punctuation; paragraph breaks inside a section's recorded unfolding; the grammar of a sentence the author has not flagged. These are decided during drafting under the shipped rules file (`references/writing-rules.md`) and the user rules file (`~/.claude/www/writing-rules.md`). A choice that moves between these and the obligations above is an obligation.
+Choices with no effect on meaning, role, strength, emphasis or order: joining or splitting sentences over recorded claims; the connective carrying a recorded relation when the candidates are synonymous; punctuation; paragraph breaks inside a section's recorded unfolding; the grammar of a sentence the author has not flagged. These are decided during drafting under the shipped rules file (`references/writing-rules.md`) and the type rules file of the record's type (`references/types/<type>.md`). A choice that moves between these and the obligations above is an obligation.
