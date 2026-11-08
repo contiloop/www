@@ -41,7 +41,7 @@ www/
     ├── contracts.md                   ← the commands, design.md, draft.md, type rules files, scripts, Codex manifests
     └── tracking/
         ├── status.md                  ← done, built-not-verified, remaining
-        ├── decisions/                 ← twelve decision records and their index
+        ├── decisions/                 ← thirteen decision records and their index
         └── findings.md                ← open problems and why they wait
 ```
 
