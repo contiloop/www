@@ -67,7 +67,7 @@ Keep asking while an answer opens a further unsettled point. An answer that intr
 
 ## Proposals
 
-Make a proposal, rather than a question, when the decision is one the author expects you to shape: the central message or how the topic is framed; the structure or a section's plan; a section's detailed logic; a rendering of a sentence the author flagged. A proposal offers two or three alternatives, states the difference between them in terms of what each makes the text say or emphasize, and recommends one. A single proposal gets accepted by inertia and your judgment then shapes the document, which is the failure this file exists to stop.
+Make a proposal, rather than a question, when the decision is one the author expects you to shape: the central message or how the topic is framed; the structure or a section's plan; a section's detailed logic; a rendering of a sentence the author flagged. Every alternative obeys the rules of the record's type file, `references/types/<type>.md`, at the level being proposed (rule 31 of `references/writing-rules.md`). A proposal offers two or three alternatives, states the difference between them in terms of what each makes the text say or emphasize, and recommends one. A single proposal gets accepted by inertia and your judgment then shapes the document, which is the failure this file exists to stop.
 
 A proposal carries no condition the author did not state: a candidate logic offers `C2 → C3 by consequence`, not a condition you supplied so that the relation would hold. When you believe a relation needs a condition, the condition is a question to the author with the three grounds, and `references/design-format.md` holds the same rule for the record.
 

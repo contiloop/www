@@ -80,7 +80,8 @@ One conversation, in whatever order the author's requests take, moving between t
   it replaced, then lists dependents for the author (`references/elicit.md`).
 - Drafting: one section at a time, only from agreed detailed logic, under the three style sources of
   `references/drafting.md`, which draws on `references/writing-rules.md` and the type rules file of
-  the record's type under `references/types/`.
+  the record's type under `references/types/`; the type rules file also binds proposals of structure,
+  plan and logic.
 - Checks: the self-check before any text is shown, the restatement check before anything is said
   about a draft, the independent check after every full-section draft; a finding the record already
   settles (category A) is applied and shown before and after, a finding that would move the record
@@ -103,7 +104,7 @@ Text in the draft you did not write is a hand edit, handled per `references/revi
 | `references/existing-manuscript.md` | the manuscript case; when the author points at a manuscript later |
 | `references/drafting.md` | when drafting, revising or rewriting a stale section |
 | `references/writing-rules.md` | with drafting.md, and before any restatement |
-| `references/types/<type>.md` | with writing-rules.md, once the record's type line names a type that has a file (`presentation-script`, `research-paper`, `report`, `essay`) |
+| `references/types/<type>.md` | once the record's type line names a type that has a file (`presentation-script`, `research-paper`, `report`, `essay`); then before every proposal or question about structure, plan or logic, and with writing-rules.md before every draft, revision or restatement |
 | `references/review.md` | at the start of every turn; before any draft, revision or restatement is shown |
 
 ## Rules held without opening a reference

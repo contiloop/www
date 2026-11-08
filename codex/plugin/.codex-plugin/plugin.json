@@ -1,6 +1,6 @@
 {
   "name": "www",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Discuss a document's message, structure, logic and wording with the author, record what is agreed, and draft text that keeps it.",
   "author": { "name": "inertia" },
   "keywords": ["writing", "academic-writing", "drafting", "elicitation", "codex", "claude-code", "skill"],
