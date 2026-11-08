@@ -81,3 +81,7 @@ Apply these rules to every sentence you draft or revise in `draft.md`, and to ev
 32. Read it with this file at every drafting and restatement step. Where a rule in it conflicts with a rule here, the user rules file wins.
 33. A rule is appended to it only after you proposed the rule in general words (rule 30) and the author accepted the wording. A correction the author made, by itself, is not an accepted rule; a rule you inferred, by itself, is not an accepted rule.
 34. The installed copy of this file is never edited at run time; it is replaced on plugin update, and anything written into it is lost then.
+
+## Cases
+
+35. A case from the case store (`references/cases.md`) is read for how to write and never for what to say. Test: name the recorded line behind the sentence; a case is not one → cut. A claim, condition, figure, definition or sentence found in a case and absent from this document's record is as unavailable as one you would invent, and the sentence that carries it goes with it.
