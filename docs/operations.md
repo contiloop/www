@@ -109,3 +109,13 @@ codex plugin remove www@www && codex plugin marketplace remove www
 ```
 
 Document folders, `~/.claude/www/writing-rules.md` and `~/.claude/www/cases/` are untouched by uninstalling.
+
+## The case store in this repository
+
+The skill writes cases to `~/.claude/www/cases/`. On the author's machine that path is a link into this repository, so the cases are committed beside the skill they inform:
+
+```bash
+mkdir -p ~/.claude/www && ln -s /Users/inertia/Desktop/www/cases ~/.claude/www/cases
+```
+
+After cloning on a new machine, recreate the link with the clone's path. Without the link the skill still works and keeps its cases in `~/.claude/www/cases/` as a plain folder. The acceptance test's `mv` of the store moves the link, not the folder, and `cases/` stays where it is.

@@ -31,6 +31,7 @@ www/
 ├── claude/                            ← generated Claude package (committed, not edited)
 ├── codex/plugin/                      ← generated Codex package (committed, not edited)
 ├── tests/ads-introduction/            ← acceptance fixture: design.md, RUN.md (both platforms), check.sh, results/
+├── cases/                             ← the author's case store, committed; ~/.claude/www/cases links here on the author's machine
 └── docs/
     ├── architecture.md                ← components, build, files at run time, flow of a turn
     ├── business-rules.md              ← the rules the skill holds, each testable

@@ -8,7 +8,7 @@ The plugin runs inside Claude Code or Codex on the author's machine with the aut
 - Text the author typed, in `design.md` or `draft.md`: never overwritten or reverted by a check or by an applied finding. A departure from the record becomes a question (restore or change), not a fix.
 - The agreed content of `design.md` parts 1 to 4: changed only on the author's acceptance, with a replacement note, quoted back in the reply that wrote it. Dependents of a changed line are asked about, never edited silently.
 - The plugin's installed files: never written at run time. Rules accepted at run time go to `~/.claude/www/writing-rules.md`; cases go to `~/.claude/www/cases/`.
-- The case store `~/.claude/www/cases/`: a case is written only on the author's word after the whole case has been shown, and is read for how to write, never for what the document argues; nothing from a case enters the record, a proposal or a draft.
+- The case store `~/.claude/www/cases/`: on the author's machine a link into the public repository's `cases/` folder, so a committed case, with the document sentences and the author's verbatim feedback it quotes, is public; the author decides this by committing. A case is written only on the author's word after the whole case has been shown, and is read for how to write, never for what the document argues; nothing from a case enters the record, a proposal or a draft.
 
 ## Who may do what
 
