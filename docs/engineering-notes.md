@@ -24,4 +24,6 @@
 
 - `claude plugin validate claude` passes but notes README.md and LICENSE missing for directory submission to the public marketplace. README exists at the repository root, not inside `claude/`; a LICENSE has not been chosen. Neither affects a local or GitHub install.
 
+- Mechanism: the fixture record carries a Progression with named relations and an `Unfolds:` block for the Introduction, so the headless run never triggers a proposal of the missing upper chain and ends in a draft. A fixture record that lacks either (a Progression as one line of arrows, a section plan that is a topic list) gets a proposal instead of a draft, and `check.sh` then has no draft to read; a transcript that ends in alternatives for the Progression is this, not a drafting failure.
+
 - Three relations in the fixture record (C4 → C5, C6 → C7, C11 → C12) have no connective in the author's Korean lines; the fixture records a reading and lists it as a pending proposal in Status. The first run drafted them without a connective where the reading was uncertain, which the record's rule allows (a relation without a stated condition is rendered without supplying one). Until the author confirms, a run that renders them differently is not a failure.

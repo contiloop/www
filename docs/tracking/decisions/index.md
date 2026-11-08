@@ -13,3 +13,4 @@
 | 0009 | [Independent-check findings the record settles are applied and shown; the rest are asked](0009-review-fixes-applied.md) |
 | 0010 | [Case memory: one file per finished document, read for how to write](0010-case-memory.md) — superseded by 0011 |
 | 0011 | [Type rules live in the plugin, one file per document type](0011-type-rules-in-plugin.md) |
+| 0012 | [The chain is built top down, with named relations at every level](0012-chain-top-down.md) |

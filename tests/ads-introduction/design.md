@@ -6,10 +6,23 @@
 - Topic: efficient selection of translation training data under a limited Teacher LLM budget
 - Message: the Introduction establishes the research question of which source sentences should be selected under a limited teacher annotation budget, then introduces QE-guided Active Data Selection (ADS) as the proposed method, which prioritizes low-QE sentences (replaces: the paper answers which sentences deserve the teacher's budget, by selecting low-QE sentences)
     author: The Introduction should establish the research question of which source sentences should be selected under a limited teacher annotation budget, and then introduce QE-guided Active Data Selection (ADS) as the proposed method, which prioritizes low-QE sentences.
-- Progression: existing translation services have cost and security problems → a small, locally deployable, domain-specific translation model must be developed → training it needs parallel data, which Teacher LLMs can supply but not for the whole dataset → which sentences should receive the teacher's budget → QE-guided ADS, which prioritizes low-QE sentences → experiments compare ADS with baselines → the conclusion answers the research question
+- Progression:
+    existing translation services have cost and security problems
+    → by consequence a small, locally deployable, domain-specific translation model must be developed
+    → by condition training it needs parallel data, which Teacher LLMs can supply but not for the whole dataset
+    → by consequence which sentences should receive the teacher's budget
+    → by question/answer QE-guided ADS, which prioritizes low-QE sentences
+    → by consequence experiments compare ADS with baselines
+    → by consequence the conclusion answers the research question
 
 ## 2 Structure and section plans
 1. Introduction — advances in translation technology; cost and security issues with existing services; need for small, locally deployable translation models; difficulties in obtaining parallel data; potential of Teacher LLMs and their cost constraints; research question: which sentences should be selected?; introduction of QE-guided ADS
+    Unfolds:
+    existing translation services have cost and security problems
+    → by consequence a small, locally deployable, domain-specific translation model must be developed
+    → by condition training it needs parallel data, which Teacher LLMs can supply but not for the whole dataset
+    → by consequence which sentences should receive the teacher's budget
+    → by question/answer QE-guided ADS, which prioritizes low-QE sentences
 2. Related Work — domain-specific translation research; Teacher LLM-based translation data generation; Active Learning and data selection; relationship between prior work and this study
 3. Method — overall ADS framework; student translation generation and QE evaluation; low-QE prioritization and length stratification; Teacher translation generation and student training
 4. Experiments — experimental setup and evaluation methods; comparison baselines; main performance results; analysis of results
@@ -73,10 +86,10 @@ C12 (description) ADS prioritizes low-QE sentences.
 document: type agreed, reader-and-topic agreed, structure agreed
 sections:
   Introduction: level logic, draft none
-  Related Work: level plan, draft none
-  Method: level plan, draft none
-  Experiments: level plan, draft none
-  Conclusion: level plan, draft none
+  Related Work: level none, draft none
+  Method: level none, draft none
+  Experiments: level none, draft none
+  Conclusion: level none, draft none
 last worked on: Introduction
 open questions: none
 proposals:

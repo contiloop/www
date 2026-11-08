@@ -29,13 +29,13 @@ Reference files and the step each governs:
 
 | Reference | Governs |
 |---|---|
-| `design-format.md` | the shape and rules of `design.md` |
-| `elicit.md` | questions, proposals, level recognition, contradictions |
+| `design-format.md` | the shape and rules of `design.md`, including the Progression and `Unfolds:` blocks as steps joined by named relations and the level each gives |
+| `elicit.md` | questions, proposals in descending order of the chain, the three obligation lines before a proposal or question at `structure`, `plan` or `logic`, level recognition, contradictions |
 | `decompose.md` | reading notes, outlines or pasted plans as material |
 | `existing-manuscript.md` | starting from text the author wrote before the record existed |
 | `writing-rules.md` | the sentence rules the drafting and restatement checks apply |
 | `drafting.md` | drafting, revision, stale drafts, the style-source list |
-| `review.md` | self-check (eight comparisons, the eighth the reading check), restatement check, independent check and the two categories of its findings, per-turn re-comparison, hand edits |
+| `review.md` | self-check (eight comparisons, the eighth the reading check), restatement check, independent check and the two categories of its findings, per-turn re-comparison, the record check on the Progression and part 2, hand edits |
 | `types/<type>.md` | the rules of one document type (`presentation-script`, `research-paper`, `report`, `essay`), read with `writing-rules.md` when the record's type line names the type, winning over it on conflict |
 
 `SKILL.md` names every reference; `scripts/check.sh` fails when a reference exists that `SKILL.md` does not name or when `SKILL.md` names one that does not exist.
@@ -56,10 +56,16 @@ Nothing is written outside the document folder. The rules that hold across docum
 author's message
   → re-read design.md and draft.md in full
   → re-compare the working section against its draft; report a disagreement first
+  → record check on the Progression and the working section's part 2 entry (shape and level); one line in the reply when something departs
   → infer the level (document-wide or per section) from the request and Status
   → one of:
-      discussion: enumerate obligations → resolve from the record → ask what survives / propose alternatives
+      discussion: enumerate obligations → resolve from the record → at structure, plan or logic, three lines:
+                  what the level obliges / what the record settles / what is asked or proposed now
+                  → ask what survives / propose alternatives, the missing upper piece of the chain first
+                    (Progression before any unfolding, unfolding before any logic, logic before any draft)
       recording:  accepted line → parts 1–4 of design.md → quoted back in the reply
+                  → a line into the Progression or part 2: record check on the shape, result in one line;
+                    a fault → open question in Status, descent waits
       drafting:   section's detailed logic + style sources (shipped rules file, type rules file, part 4) → draft text
                   → self-check (mapping, 8 comparisons; the 8th reads the section in order against the record)
                   → independent check (subagent) → category A findings applied, self-check rerun
