@@ -1,0 +1,49 @@
+**세 관계는 쓰인 대로 유지했습니다.** 부분 3의 다음 세 줄이 그대로 확정되었고, Status의 제안 항목은 지웠습니다.
+
+- `C4 → C5 by contrast` (author: 병렬 데이터를 사람에게 만들도록 하기 어렵다)
+- `C6 → C7 by cause` (author: Teacher LLM이 양질의 번역 supervision을 제공할 수 있다)
+- `C11 → C12 by condition` (author: ADS는 student의 번역을 QE 모델로 평가하고, QE 점수가 낮은 문장을 우선 선택한다)
+
+**자체 점검** 결과, 첫 초안에서 고친 것은 없습니다. 제가 혼자 정한 표현 두 가지는 알려 둡니다. "QE"는 첫 등장에서 "quality estimation (QE)"로 풀어 썼고, 작성자 문장(C9, C12)의 "student"는 기록에 C3의 모델을 student로 묶는 줄이 없어 "the model"로 썼습니다. 이 두 번째 점은 아래 Status에 열린 질문으로 적었습니다.
+
+**독립 점검**은 네 건을 찾았고, 모두 기록이 이미 정한 것이어서 초안에 반영했습니다.
+
+1. "Teacher LLMs는 supervision을 제공할 수 있다"가 앞 문장과 아무 연결어 없이 놓여, 기록의 `C6 → C7 by cause`가 드러나지 않았습니다. → "since"로 원인 관계를 썼습니다.
+2. C12가 관계절("which evaluates ...")로 붙어 설명으로만 읽혔고, 기록의 `C11 → C12 by condition`이 드러나지 않았습니다. → 문장을 나누고 "when its QE score is low"로 조건을 썼습니다.
+3. C2를 "using the existing services raises ..."로 써서 주어가 기록의 영어 줄("existing services have ...")과 달랐습니다. → 기록의 주어로 돌렸습니다.
+4. C3, C4, C7, C8의 기록은 복수("models", "Teacher LLMs")인데 초안은 단수였습니다. → 복수로 맞췄습니다.
+
+고치기 전:
+
+> Translation technology has advanced. However, using the existing services raises cost and security issues. A small, domain-specific translation model that can run locally must therefore be developed.
+>
+> Training such a model requires parallel data, but having people construct parallel data is difficult. An alternative source of supervision is therefore needed. A Teacher LLM can provide such translation supervision at high quality. However, applying it to the entire dataset is expensive. Yet even a small amount of high-quality parallel data can improve the model's translation performance.
+>
+> Which sentences, then, should receive the teacher's annotation budget when that budget is limited? To answer this question, we propose QE-guided Active Data Selection (ADS), which evaluates the translations of the model being trained with a quality estimation (QE) model and selects the sentences with low QE scores first.
+
+고친 후 (현재 `draft.md`의 Introduction 전체):
+
+> Translation technology has advanced. However, existing services have cost and security issues. Small, domain-specific translation models that can run locally must therefore be developed.
+>
+> Training such models requires parallel data, but having people construct parallel data is difficult. An alternative source of supervision is therefore needed. Teacher LLMs are such a source, since they can provide high-quality translation supervision. However, applying them to the entire dataset is expensive. Yet even a small amount of high-quality parallel data can improve the translation performance of such models.
+>
+> Which sentences, then, should receive the teacher's annotation budget when that budget is limited? To answer this question, we propose QE-guided Active Data Selection (ADS). ADS evaluates the translations of the model being trained with a quality estimation (QE) model and selects a sentence first when its QE score is low.
+
+고친 뒤 자체 점검을 다시 돌렸고, 더 고친 것은 없습니다. 네 건 중 되돌리고 싶은 것이 있으면 말씀해 주세요. 말씀이 없으면 그대로 둡니다.
+
+**초안이 말하는 내용 (기록 C1–C12 기준):**
+
+번역 기술은 발전했다(C1). 그러나 기존 서비스에는 비용과 보안 문제가 있다(C2). 그러므로 로컬에서 실행할 수 있는 작은 도메인 특화 번역 모델을 개발해야 한다(C3). 이는 선택지 하나가 아니라 필요로 쓰였고, "로컬에서 실행할 수 있는"이라는 조건이 그 문장 안에 들어 있다.
+
+그런 모델을 학습하려면 병렬 데이터가 필요한데(C4), 사람에게 만들도록 하기는 어렵다(C5). 따라서 다른 supervision 공급원을 찾아야 한다(C6). Teacher LLM이 그 공급원인데, 양질의 번역 supervision을 제공할 수 있기 때문이다(C7). 하지만 전체 데이터에 쓰기에는 비용이 크다(C8). 그런데 소량의 고품질 병렬 데이터만으로도 그런 모델의 번역 성능을 개선할 수 있다(C9).
+
+그렇다면 제한된 비용으로 어떤 문장에 teacher의 비용을 써야 하는가(C10, 질문으로 썼고 "제한된 비용으로" 조건 포함). 이 질문에 답하기 위해 QE-guided Active Data Selection(ADS)을 제안한다(C11). ADS는 학습 중인 모델의 번역을 QE 모델로 평가하고, QE 점수가 낮은 문장을 우선 선택한다(C12).
+
+초안에는 C10과 C11 사이의 low-QE 선택 근거 문장도, 작은 모델이 유용하다는 판단도 없습니다.
+
+**Status에 쓴 것:**
+
+- `Introduction: level logic, draft drafted`
+- `proposals: none`
+- 열린 질문: C3의 모델을 본문에서 작성자 문장대로 "the student"라고 부를지. C9와 C12에 걸리며, 그 연결을 적은 줄이 기록에 없어 지금 초안은 "the model"로 두었습니다. "student"로 부르려면 C3이나 C4에 그 모델이 student라는 줄을 하나 더 두면 됩니다. 넣을지, 아니면 "the model"로 둘지 정해 주세요.
+exit=0
