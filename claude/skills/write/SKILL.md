@@ -23,7 +23,8 @@ proposal with its alternatives, a draft with its check results, a finding), or t
 you. Reading, loading a reference, writing a file and
 dispatching a check are silent; a line that announces one of them is dropped, not translated. Use
 plain words. The author knows the record's headings and its Status values (`type`, `reader-and-topic`,
-`structure`, `plan`, `logic`, `wording`, `none | drafted | stale`); every other name in this file and
+`structure`, `plan`, `logic`, `wording`, `none | drafted | stale`), `Progression` and `Unfolds` from
+the quote-back, and the record check from its one-line result; every other name in this file and
 the references stays out of your replies, including content remark, understanding remark, category A
 and category B.
 
@@ -51,16 +52,19 @@ per `references/decompose.md`: filed per record part, nothing accepted by being 
 
 Re-read `design.md` and `draft.md` in full and discard what the conversation remembers of them; the
 author may have edited either by hand. Run the re-comparison of `references/review.md` on the section
-the request names, otherwise the section Status lists as last worked on; a disagreement between record
-and draft is reported before the request is touched. Then take up the request.
+the request names, otherwise the section Status lists as last worked on, and its record check on the
+Progression and that section's plan; a disagreement between record and draft, or a departure from the
+record's shape, is reported before the request is touched. Then take up the request.
 
 ## The six levels
 
 Three levels are document-wide: `type`, `reader-and-topic`, `structure`. Three are per section:
 `plan`, `logic`, `wording`. Infer the level from the request and from Status per
 `references/elicit.md`; when the request fits two levels, ask which. The author opens any level at any
-time, in any order; a level is never a precondition for another. When work at one level needs a
-decision from another that is not agreed, that decision becomes a question with the three grounds.
+time; what you propose next is bound to the chain above it: the Progression before any section's
+unfolding, the unfolding before the section's logic, the logic before a draft. A missing Progression or
+unfolding is proposed first, in alternatives; a missing single decision of another kind is a question
+with the three grounds (`references/elicit.md`).
 
 ## The loop
 
@@ -69,11 +73,17 @@ One conversation, in whatever order the author's requests take, moving between t
 - Discussion: read each remark of the author first for its kind, a content remark or an understanding
   remark (`references/elicit.md`); then enumerate what the level obliges the record to settle, resolve
   from the record and the author model, ask what survives with the three grounds, and make proposals
-  in two or three alternatives with one recommended (`references/elicit.md`). The author's content
+  in two or three alternatives with one recommended (`references/elicit.md`); at `structure`, `plan`
+  and `logic` the reply carries the three obligation lines (what the level obliges the record to
+  settle, what the record already settles, what is asked or proposed now) before any question or
+  proposal, and when the request lands below the chain your next proposal is the missing upper chain,
+  the Progression or the section's unfolding, before what was asked. The author's content
   remark, made unprompted, is accepted by being made; your proposal is accepted only by the author's
   word, and a line you supplied inside it only by the author's word on that line.
 - Recording: accepted lines enter parts 1 to 4 of the record in the shape of
-  `references/design-format.md` and are quoted back in the same reply; a type line that names a type
+  `references/design-format.md` and are quoted back in the same reply; a line entering the Progression
+  or a section plan carries the record check's result in one line beside the quote-back
+  (`references/review.md`); a type line that names a type
   with a file under `references/types/` is quoted back with that file named by path (rule 31 of
   `references/writing-rules.md`); everything pending, declined or about the state of the work goes to
   Status. A contradiction changes its line with a note of what
@@ -105,12 +115,14 @@ Text in the draft you did not write is a hand edit, handled per `references/revi
 | `references/drafting.md` | when drafting, revising or rewriting a stale section |
 | `references/writing-rules.md` | with drafting.md, and before any restatement |
 | `references/types/<type>.md` | once the record's type line names a type that has a file (`presentation-script`, `research-paper`, `report`, `essay`); then before every proposal or question about structure, plan or logic, and with writing-rules.md before every draft, revision or restatement |
-| `references/review.md` | at the start of every turn; before any draft, revision or restatement is shown |
+| `references/review.md` | at the start of every turn; whenever a line enters the Progression or a section plan, for the record check; before any draft, revision or restatement is shown |
 
 ## Rules held without opening a reference
 
 - Nothing enters parts 1 to 4 of the record without the author's acceptance, and every written line is
   quoted back in the same reply, English line and the author's words.
+- Every write into the Progression or a section plan is checked against the record's shape and the
+  result stated in the reply.
 - The author's words are kept verbatim beside each recorded line; a cleaned-up or translated version
   is not verbatim.
 - Text the author typed, in the record or the draft, is never overwritten; a departure from the record
@@ -118,6 +130,9 @@ Text in the draft you did not write is a hand edit, handled per `references/revi
 - Dependents of a changed line are listed and asked about, never edited silently.
 - A draft is written only from agreed detailed logic; below that, two or three candidate logics are
   proposed and the author picks or fixes one first.
+- A chain is proposed only under the chain above it: no section unfolding before the Progression, no
+  detailed logic before the section's unfolding, no draft before the detailed logic; what the author
+  states at any level is recorded as stated.
 - Every proposal of message, structure, plan, logic or flagged wording comes in two or three
   alternatives with the difference stated and one recommended.
 - Findings of the independent check are all shown; those the record already settles are applied to

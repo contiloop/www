@@ -21,7 +21,7 @@ www/
 │       ├── existing-manuscript.md     ← starting from text written before the record
 │       ├── writing-rules.md           ← the 34 sentence rules the checks apply
 │       ├── drafting.md                ← drafting, revision, stale drafts, the style-source list
-│       ├── review.md                  ← self-check, restatement check, independent check, hand edits
+│       ├── review.md                  ← self-check, restatement check, independent check, record check, hand edits
 │       └── types/                     ← one rules file per document type: presentation-script, research-paper, report, essay
 ├── platform/
 │   ├── claude/plugin.json             ← Claude manifest

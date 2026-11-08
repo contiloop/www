@@ -31,7 +31,7 @@ No other understanding remark raises a question about recording it.
 
 ## Enumerate the obligations of the level, then ask what survives
 
-Before asking anything at a level, list what the record is obliged to settle there. For a section: the claims it makes; the relation that carries each claim to the next; the condition that makes each relation hold; what the reader must already know before the section starts; what the section deliberately leaves out. For the document-wide levels: the type, the reader and what they judge, the central topic, the message the text must leave, the ordered sections and each section's responsibility.
+Before asking anything at a level, list what the record is obliged to settle there. For a section: the claims it makes; the relation that carries each claim to the next; the condition that makes each relation hold; what the reader must already know before the section starts; what the section deliberately leaves out. For a section at `plan`: what it covers, and its unfolding, the steps from its first to its last and the join between each pair of neighbours. For the document-wide levels: the type, the reader and what they judge, the central topic, the message the text must leave, the Progression in the shape of `references/design-format.md`, the ordered sections and each section's responsibility.
 
 Resolve each item in this order, and let an item become a question only when it reaches the last step:
 
@@ -40,6 +40,8 @@ Resolve each item in this order, and let an item become a question only when it 
 3. Neither. Ask.
 
 Enumerating is cheap and internal; asking is costly and visible. The list is complete, the questions are minimal, and no item on the list is left to a default. The list of kinds above is the floor for what counts as an obligation; a decision of another kind that would change the text is an obligation too.
+
+At `structure`, `plan` and `logic`, the result of the enumeration is written, not only used: before any proposal or question at one of these levels, the reply carries three short lines in the author's language, one saying what the level obliges the record to settle, one what the record already settles of it, one what is asked or proposed now. They are a result under the speaking rule of `SKILL.md`, like a recorded line quoted back, and they make a skipped enumeration visible as a missing line. At `type`, `reader-and-topic` and `wording` the lines are not written; the obligations there are few and the quote-back shows them.
 
 ## The three grounds
 
@@ -65,6 +67,8 @@ Structured questions carry at most four options, each with a short label. A ques
 
 Keep asking while an answer opens a further unsettled point. An answer that introduces a new claim brings that claim's relation and condition with it as new obligations.
 
+An ordered list from the author for the document or for a section ("1. … 2. … 3. …") is the order of its steps: record the steps in that order, in the Progression of part 1 or the section's unfolding in part 2, then ask, pair by pair, the relation that carries each step to the next, offering a recommended reading from the relation set of `references/design-format.md` and the open option. An answered pair enters with its relation; a declined pair enters as a declined join in the form `references/design-format.md` gives, and a declined join holds nothing below it back. Once every pair is answered or declined, the Progression or the unfolding exists and the descent of "Recognizing the level" below continues.
+
 ## Proposals
 
 Make a proposal, rather than a question, when the decision is one the author expects you to shape: the central message or how the topic is framed; the structure or a section's plan; a section's detailed logic; a rendering of a sentence the author flagged. Every alternative obeys the rules of the record's type file, `references/types/<type>.md`, at the level being proposed (rule 31 of `references/writing-rules.md`). A proposal offers two or three alternatives, states the difference between them in terms of what each makes the text say or emphasize, and recommends one. A single proposal gets accepted by inertia and your judgment then shapes the document, which is the failure this file exists to stop.
@@ -79,7 +83,7 @@ A proposal is not agreed until the author accepts it. Until then it lives in Sta
 
 Six levels: `type`, `reader-and-topic` and `structure` for the whole document; `plan`, `logic` and `wording` for each section. The level is read from the request ("let's plan the structure", "go through the Introduction claim by claim", "the third paragraph's emphasis is wrong") and from Status. When the request names a section and a concern, the level is per section; when it names the document as a whole, it is document-wide. When the request fits two levels, ask which, with the two as options.
 
-The author may open any level at any time. Do not require an earlier level to be agreed before working at a later one, and do not ask the author to issue a command to change level. When work at a later level needs a decision from an earlier one that is not agreed (drafting a section's logic while the section's responsibility in the structure is open), raise that decision as a question with the three grounds; the missing earlier decision is the second ground.
+The author may open any level at any time and is never told to issue a command to change level or to finish one level before another: a Progression, an unfolding or a chain of claims stated in one message is that resolution, supplied, and is recorded in the shape of `references/design-format.md` and worked on from there, even when nothing above it is agreed yet. Your own next proposal is bound to the chain above it. The document's logic exists at three resolutions, the Progression in part 1, each section's unfolding in part 2 and its claims in part 3, and you propose a section's unfolding only when the Progression exists in the shape of `references/design-format.md`, a section's detailed logic only when that section's unfolding exists, a declined join counting as existing, and a draft only from detailed logic (`references/drafting.md`). When a request lands below the chain, it is taken up, not refused: the missing upper piece is proposed first, under Proposals above, in two or three alternatives with one recommended; the accepted alternative is recorded and quoted back; then the descent continues in the same conversation down to what was asked. A missing Progression or unfolding is proposed, because shaping it is yours; a missing single decision of another kind that a later level needs (a section's responsibility in the structure while its logic is being settled, the reader's judgment while the message is being framed) is a question with the three grounds, the missing decision being the second ground.
 
 ## Contradiction and dependents
 
@@ -91,6 +95,8 @@ When a new statement from the author contradicts an agreed line, or changes a cl
 4. Mark the drafted text of the changed section, and of every dependent section whose logic the author changes, stale in Status, and tell the author. Rewrite a stale draft only when the author asks.
 
 Never edit a dependent silently, even when the follow-on change looks forced. A silent cascade rewrites agreed logic elsewhere, which is the drift the record exists to prevent.
+
+A later statement from the author that gives a step boundary a different relation than part 2 records is a contradiction, not an addition: the part 2 line changes with its replacement note and the dependents procedure runs, with the part 3 relation at that boundary among the dependents, since `references/design-format.md` has part 3 inherit the relation at a step boundary.
 
 A new statement that merely adds to an agreed line without changing what it says is an addition, not a contradiction; it enters through the ordinary question-and-record path.
 
