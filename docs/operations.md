@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- Claude Code CLI (`claude`, tested with 2.1.x) and/or Codex CLI (`codex`, tested with 0.162.x). For the skill's independent check, Codex needs its multi-agent feature on (`multi_agent = true` under `[features]` in `~/.codex/config.toml`); without it the skill reports that it could not dispatch the check and shows the draft after the self-check only. Writing an accepted rule to `~/.claude/www/writing-rules.md` or a case to `~/.claude/www/cases/` from Codex needs a sandbox that allows writes outside the document folder (`sandbox_mode = "danger-full-access"`, or an approval when asked); a refused write is reported, the rule stays in the document's `design.md`, and the case text stays in the reply.
+- Claude Code CLI (`claude`, tested with 2.1.x) and/or Codex CLI (`codex`, tested with 0.162.x). For the skill's independent check, Codex needs its multi-agent feature on (`multi_agent = true` under `[features]` in `~/.codex/config.toml`); without it the skill reports that it could not dispatch the check and shows the draft after the self-check only.
 - `python3` on the path (macOS ships it with the command-line tools); `scripts/check.sh` and `tests/ads-introduction/check.sh` parse JSON and split sentences with it.
 - git.
 
@@ -68,7 +68,7 @@ Exit 0 when both marketplace manifests name `www`, the three platform manifests 
 
 ## Acceptance test
 
-Follow `tests/ads-introduction/RUN.md`. Before any run move the case store aside, `mv ~/.claude/www/cases ~/.claude/www/cases.aside`, and restore it after, `mv ~/.claude/www/cases.aside ~/.claude/www/cases`; with the store in place the draft would depend on the cases the machine holds. Interactive: open a Claude Code session in `tests/ads-introduction/`, run `/www:write`, ask for the Introduction draft and a Korean explanation. Headless, from the repository root:
+Follow `tests/ads-introduction/RUN.md`. Interactive: open a Claude Code session in `tests/ads-introduction/`, run `/www:write`, ask for the Introduction draft and a Korean explanation. Headless, from the repository root:
 
 ```bash
 cd tests/ads-introduction && claude -p --dangerously-skip-permissions --output-format text --max-turns 60 "/www:write No need to initialize git here. Draft the Introduction section. After the draft and its checks, give me a Korean explanation of what the draft says." < /dev/null > results/transcript.txt
@@ -96,7 +96,7 @@ git checkout -- tests/ads-introduction/design.md && rm -f tests/ads-introduction
 
 ## Using the skill on a document
 
-Open a Claude Code or Codex session in the document's folder (or pass the folder path after the command) and run `/www:write` or `$write` followed by the request in plain words. The skill creates `design.md` and `draft.md` there. `~/.claude/www/writing-rules.md` appears the first time a cross-document rule is accepted; deleting it drops those rules, nothing else. When every section is drafted and nothing is open, the skill offers once per session to write the document's case to `~/.claude/www/cases/<date>-<folder name>.md`, showing the whole case first; the author may also ask for it at any time. Cases are read on later documents for how to write; deleting a case file drops that document's lessons, nothing else.
+Open a Claude Code or Codex session in the document's folder (or pass the folder path after the command) and run `/www:write` or `$write` followed by the request in plain words. The skill creates `design.md` and `draft.md` there and writes nothing else. A rule you accept while writing that applies beyond the document is recorded in that document's `design.md` and shown as the line to add to the plugin's `references/writing-rules.md` or to the type rules file `references/types/<type>.md`; it guards the current document at once and other documents only after you add it in the repository, as under Adding a rule below.
 
 ## Uninstall
 
@@ -108,14 +108,24 @@ claude plugin uninstall www@www && claude plugin marketplace remove www
 codex plugin remove www@www && codex plugin marketplace remove www
 ```
 
-Document folders, `~/.claude/www/writing-rules.md` and `~/.claude/www/cases/` are untouched by uninstalling.
+Document folders are untouched by uninstalling.
 
-## The case store in this repository
+## Adding a rule
 
-The skill writes cases to `~/.claude/www/cases/`. On the author's machine that path is a link into this repository, so the cases are committed beside the skill they inform:
+Append the line the skill showed, in the numbered form of the file, at the end of `src/skills/write/references/writing-rules.md` (a rule for every document) or of `src/skills/write/references/types/<type>.md` (a rule for one type); the number continues the file's sequence. Raise the version in the three `platform/*/plugin*.json` files, then:
 
 ```bash
-mkdir -p ~/.claude/www && ln -s /Users/inertia/Desktop/www/cases ~/.claude/www/cases
+sh scripts/build.sh && sh scripts/check.sh
 ```
 
-After cloning on a new machine, recreate the link with the clone's path. Without the link the skill still works and keeps its cases in `~/.claude/www/cases/` as a plain folder. The acceptance test's `mv` of the store moves the link, not the folder, and `cases/` stays where it is.
+Commit the source, the manifests and the regenerated packages, then update the installed copies:
+
+```bash
+claude plugin marketplace update www && claude plugin update www@www
+```
+
+```bash
+codex plugin remove www@www && codex plugin add www@www
+```
+
+A rule for a type other than research paper is tried live on a document of that type; the acceptance fixture reads `types/research-paper.md` only.

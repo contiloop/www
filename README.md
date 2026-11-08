@@ -38,7 +38,7 @@ Files, per document, in the document folder:
 - `draft.md`: the text, one heading per section, in the document's language.
 - An existing manuscript in the folder is read, never modified; `draft.md` becomes the working copy.
 
-One file per user, created on the first rule you accept: `~/.claude/www/writing-rules.md`, the writing rules that carry over to later documents. It is read with the plugin's shipped rules in `src/skills/write/references/writing-rules.md` and wins on conflict.
+The writing rules are the plugin's own files: `src/skills/write/references/writing-rules.md` for every document and one file per document type under `src/skills/write/references/types/` (`presentation-script.md`, `research-paper.md`, `report.md`, `essay.md`), read with it and winning on conflict. A rule you accept while writing is recorded in that document's `design.md` and shown as the line to add to one of these files; to carry it to later documents, append the line there, raise the version in the three `platform/` manifests, run `sh scripts/build.sh && sh scripts/check.sh`, commit, and reinstall.
 
 ## Check the plugin
 
