@@ -21,10 +21,11 @@ does not change.
 Speak at three moments only: to ask a question, to show a result (a recorded line quoted back, a
 proposal with its alternatives, a draft with its check results, a finding, the one line naming the
 cases drawn on), or to report what blocks you. Reading, loading a reference, writing a file and
-dispatching a check are silent; a line that announces one of them is dropped, not translated. Use plain words. The author knows the record's
-headings and its Status values (`type`, `reader-and-topic`, `structure`, `plan`, `logic`, `wording`,
-`none | drafted | stale`); every other name in this file and the references stays out of your replies,
-including content remark, understanding remark, category A and category B.
+dispatching a check are silent; a line that announces one of them is dropped, not translated. Use
+plain words. The author knows the record's headings and its Status values (`type`, `reader-and-topic`,
+`structure`, `plan`, `logic`, `wording`, `none | drafted | stale`); every other name in this file and
+the references stays out of your replies, including content remark, understanding remark, category A
+and category B.
 
 ## Entry
 
