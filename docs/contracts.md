@@ -7,7 +7,7 @@ What a user of the plugin, or a tool reading its files, can rely on.
 Claude Code: `/www:write [path] [request in natural language]`. Codex: `$write [path] [request in natural language]`. Same skill, same files, same behavior.
 
 - Input: an optional folder path (the document folder; default: the current directory) and free text. There are no sub-commands and no required order of requests.
-- Output: replies in the author's language that are one of three things: a question, a result (a recorded line quoted back, a proposal with alternatives, a draft with its check results, a finding), or a report of what blocks. Files written: `design.md` and `draft.md` in the document folder; `~/.claude/www/writing-rules.md` on the first accepted cross-document rule.
+- Output: replies in the author's language that are one of three things: a question, a result (a recorded line quoted back, a proposal with alternatives, a draft with its check results and each applied fix before and after, a finding, a case shown whole), or a report of what blocks. Files written: `design.md` and `draft.md` in the document folder; `~/.claude/www/writing-rules.md` on the first accepted cross-document rule; `~/.claude/www/cases/<date>-<folder name>.md` on the author's word when the document is finished or on request.
 - Error cases: a folder with several text files and no `design.md` and no pointed-at file → the skill asks which is the manuscript before writing anything. A request that fits two levels → the skill asks which. A request to draft a section below level `logic` → two or three candidate logics are proposed; no draft is written.
 
 ## `design.md`
@@ -37,6 +37,8 @@ proposals:
   - <what, for which part and section>, alternatives: <A> / <B> / <C>, recommended <one>
 ```
 
+A line the skill supplied inside a proposal is held as its own `proposals` entry until accepted on its own: `- <section>, <claim>, line the skill supplied: <line>, alternatives: enter the record / leave out, recommended <one>`. A declined case offer is an open question: `- Whether to record this document as a case; lands in the case store, not in the document; nothing in the text depends on it — declined`.
+
 A reader may edit any part by hand; the skill re-reads the whole file every turn and treats Status as hints.
 
 ## `draft.md`
@@ -46,6 +48,27 @@ Markdown in the document's language, one `##` heading per section in the order o
 ## `~/.claude/www/writing-rules.md`
 
 Markdown. Rules the author accepted at run time, each in general words, appended in acceptance order. Read with the shipped `references/writing-rules.md`; a rule here wins on conflict. Created by the skill on the first accepted rule; safe to edit or delete by hand.
+
+## `~/.claude/www/cases/<date>-<folder name>.md`
+
+Markdown, English with the author's words verbatim where quoted. One file per document folder, named `<YYYY-MM-DD>-<document folder name>.md`, written only on the author's word after the whole case was shown; rewritten whole, same file name, when the document is finished again. The `Document:` line holds the folder's absolute path, which is the key: two files with the same path are a defect. Parts, in this order:
+
+```
+# Case: <title>
+Document: <folder path> — <title>; written <YYYY-MM-DD>, updated <YYYY-MM-DD>
+## Task type
+<presentation script | research paper | report | essay | other> — <the record's type line, verbatim>
+## Task context
+## Materials
+## First-draft problems
+## Author feedback
+## Revisions made
+## Lessons
+### Given or accepted by the author
+### Inferred by the skill
+```
+
+`Author feedback` holds the author's remarks verbatim, understanding remarks included. The two `Lessons` groups are never merged. The skill reads every case when the record holds type and reader, and again before drafting, revising or checking a section; it takes from a case how to write, never a line for the record, a proposal or a draft. Safe to edit or delete by hand; deleting a file drops that document's lessons, nothing else.
 
 ## `scripts/build.sh`
 

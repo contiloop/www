@@ -30,3 +30,29 @@ Same headless command. Transcript `transcript-3.txt`, draft `draft-3.md`, mappin
 Command: `codex exec --dangerously-bypass-approvals-and-sandbox -o results/last-codex.md '$write ...'` with the same request, in this folder, plugin installed from this repository (`codex plugin marketplace add`, `codex plugin add www@www`). Transcript `transcript-codex.txt`, draft `draft-codex.md`, mapping `mapping-codex.txt`, explanation `explanation-codex.md`.
 
 Mechanical: pass on all six lines (12 sentences mapped 1 to 12). Judged: all five pass. The draft keeps "must be developed" with "can run locally"; sentence 11 follows the research question directly; every sentence renders one claim; the Korean explanation restates the record paragraph by paragraph and adds no claim, no "유용". The self-check and the independent check are both reported in the reply; the Codex session log (`~/.codex/sessions/2026/11/07/rollout-2026-11-07T18-45-25-*.jsonl`) shows one `spawn_agent` call with two `wait_agent` calls. The skill also ran the fixture's `check.sh` on its own draft before showing it.
+
+# Result: 2026-11-08, Claude Code run on plugin 0.3.0 (applied findings, reading check, case store)
+
+Same headless command, with no case store present (`~/.claude/www/` does not exist on this machine). Transcript `transcript-4.txt`, draft `draft-4.md`, mapping `mapping-4.txt`, explanation `explanation-4.md`.
+
+Mechanical: pass on all six lines (11 sentences; sentence 5 renders claims 5 and 6, mapped `5,6`). Judged: all five pass. Claim 3 is a need with "can run locally" and neither "alternative" nor "option"; sentence 10 follows the research question directly; every sentence renders a recorded claim; the Korean explanation restates the twelve claims and adds none, "유용" absent; the self-check is reported before the draft and the independent check after it, with one subagent dispatch in the session log.
+
+New in 0.3.0, as specified: the independent check returned one finding (C6 → C7 rendered as succession, "of this kind" without recorded words); the skill classified it as settled by the record, applied it before showing the text, showed the whole paragraph before and after with the reason in one line, reported that the self-check ran again, and asked whether the author objects. No finding waited for approval, and no finding that would move the record occurred in this run, so the question path for that category is not exercised here. The pending proposal on the three relations was removed from Status at the author's instruction and nothing entered parts 1 to 4.
+
+# Result: 2026-11-08, Codex run on plugin 0.3.0
+
+Same `codex exec` command, no case store present. Transcript `transcript-codex-2.txt`, last message `last-codex-2.md`, draft `draft-codex-2.md`, mapping `mapping-codex-2.txt`, explanation `explanation-codex-2.md`.
+
+Mechanical: pass on all six lines (12 sentences mapped 1 to 12). Judged: all five pass. Claim 3 is a need with "can run locally"; the ADS sentence follows the research question directly; every sentence renders one claim; the Korean explanation restates the record and adds no claim, "유용" absent; the reply reports the self-check and the independent check, and the Codex session log (`~/.codex/sessions/2026/11/08/rollout-2026-11-08T14-57-02-*.jsonl`) shows the `spawn_agent` call. The independent check returned no finding, so neither category's handling is exercised in this run. The draft's section heading is `#` rather than the `##` the draft contract states; recorded in `docs/tracking/findings.md`.
+
+# Result: 2026-11-08, Claude Code rerun on plugin 0.3.0 after the review fixes
+
+Same command, after the final review's fixes to `review.md`, `elicit.md`, `drafting.md` and `SKILL.md` were installed. Transcript `transcript-5.txt`, draft `draft-5.md`, mapping `mapping-5.txt`, explanation `explanation-5.md`.
+
+Mechanical: pass on all six lines (12 sentences mapped 1 to 12). Judged: all five pass. The independent check returned two findings the record settles (a clause with no recorded line that also misdirected "since"; "existing translation services" narrowing C2's "existing services"); both were applied before the text was shown, the first as the whole paragraph before and after, the second as the sentence before and after, each with its reason, followed by the whole section and the question whether the author objects. One subagent dispatch in the session log. The draft's section heading is `#`, as in the Codex run (see `docs/tracking/findings.md`).
+
+# Result: 2026-11-08, Codex rerun on plugin 0.3.0 after the review fixes
+
+Same `codex exec` command with the reviewed text installed. Transcript `transcript-codex-3.txt`, last message `last-codex-3.md`, draft `draft-codex-3.md`, mapping `mapping-codex-3.txt`, explanation `explanation-codex-3.md`.
+
+Mechanical: pass on all six lines (11 sentences; sentence 6 renders claims 6 and 7, mapped `6,7`). Judged: all five pass. The independent check returned no finding; the reply reports both checks and the session log shows the `spawn_agent` call. The section heading is `#` again (findings file).

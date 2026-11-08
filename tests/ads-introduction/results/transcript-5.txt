@@ -1,0 +1,56 @@
+The three pending relations stand as written in part 3, and the proposal is removed from Status:
+
+- `C4 → C5 by contrast` (author: 병렬 데이터를 사람에게 만들도록 하기 어렵다)
+- `C6 → C7 by cause` (author: Teacher LLM이 양질의 번역 supervision을 제공할 수 있다)
+- `C11 → C12 by condition` (author: ADS는 student의 번역을 QE 모델로 평가하고, QE 점수가 낮은 문장을 우선 선택한다)
+
+Nothing else in parts 1 to 4 changed. Status now reads `Introduction: level logic, draft drafted`, `proposals: none`.
+
+The self-check ran before the text was shown and changed nothing. The independent check (a fresh reviewer holding only part 3, part 4 and the draft) returned two findings, both settled by the record, both applied:
+
+**Fix 1**, sentence 7: the clause "are such a source" had no recorded line, and "since" then tied C7 to that clause instead of to C6.
+
+Before (paragraph 2):
+
+> Training such a model requires parallel data. Having people construct parallel data, however, is difficult. Another source of supervision is therefore needed. Teacher LLMs are such a source, since they can provide high-quality translation supervision. Applying them to the entire dataset, however, is expensive. Yet even a small amount of high-quality parallel data can improve the model's translation performance.
+
+After (paragraph 2):
+
+> Training such a model requires parallel data. Having people construct parallel data, however, is difficult. Another source of supervision is therefore needed. Teacher LLMs can provide this supervision at high quality. Applying them to the entire dataset, however, is expensive. Yet even a small amount of high-quality parallel data can improve the model's translation performance.
+
+**Fix 2**, sentence 2: the subject was narrowed to "existing translation services"; C2 says "existing services" (기존 서비스).
+
+Before: *However, existing translation services have cost and security issues.*
+After: *However, existing services have cost and security issues.*
+
+The self-check ran again after the fixes and changed nothing. The whole section as it now stands in `draft.md`:
+
+> # Introduction
+>
+> Translation technology has advanced. However, existing services have cost and security issues. Therefore, a small, domain-specific translation model that can run locally must be developed.
+>
+> Training such a model requires parallel data. Having people construct parallel data, however, is difficult. Another source of supervision is therefore needed. Teacher LLMs can provide this supervision at high quality. Applying them to the entire dataset, however, is expensive. Yet even a small amount of high-quality parallel data can improve the model's translation performance.
+>
+> Which sentences, then, should receive the teacher's annotation budget when that budget is limited? To answer this question, we propose QE-guided Active Data Selection (ADS). ADS evaluates the model's translations with a QE model and selects the sentences with low QE scores first.
+
+Sentence-to-claim mapping: sentences 1 to 12 render C1 to C12 one each, in order; no sentence is without a recorded line. Do you object to either fix? Silence or "continue" leaves them.
+
+---
+
+초안이 말하는 내용을 기록(design.md)의 주장 순서대로 설명합니다.
+
+1. 번역 기술은 발전했다. (C1)
+2. 그러나 기존 서비스에는 비용·보안 문제가 있다. (C2, C1과의 대조)
+3. 그러므로 로컬에서 실행할 수 있는 작은 도메인 특화 번역 모델을 개발해야 한다. (C3, C2의 결과. "로컬에서 실행할 수 있는"이라는 조건이 문장 안에 있고, 선택지가 아니라 개발해야 하는 필요로 쓰였습니다.)
+4. 이러한 모델을 학습하려면 병렬 데이터가 필요하다. (C4)
+5. 그러나 병렬 데이터를 사람에게 만들도록 하기는 어렵다. (C5)
+6. 따라서 다른 supervision 공급원이 필요하다. (C6)
+7. Teacher LLM은 그 supervision을 양질로 제공할 수 있다. (C7)
+8. 그러나 전체 데이터에 Teacher LLM을 사용하기에는 비용이 크다. (C8)
+9. 그런데 소량의 고품질 병렬 데이터만으로도 모델의 번역 성능을 개선할 수 있다. (C9)
+10. 그렇다면 teacher의 비용이 제한될 때, 어떤 문장에 그 비용을 써야 하는가? (C10, 질문. "제한된 비용으로"라는 조건이 문장 안에 있습니다.)
+11. 이 질문에 답하기 위해 QE-guided Active Data Selection(ADS)을 제안한다. (C11)
+12. ADS는 모델의 번역을 QE 모델로 평가하고, QE 점수가 낮은 문장을 우선 선택한다. (C12)
+
+초안에는 이 열두 문장 외의 문장이 없습니다. 작은 모델의 쓸모를 말하는 문장도, 연구 질문과 ADS 제안 사이에 낮은 QE 문장을 고르는 이유를 설명하는 문장도 들어 있지 않습니다.
+exit=0

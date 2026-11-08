@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- Claude Code CLI (`claude`, tested with 2.1.x) and/or Codex CLI (`codex`, tested with 0.162.x). For the skill's independent check, Codex needs its multi-agent feature on (`multi_agent = true` under `[features]` in `~/.codex/config.toml`); without it the skill reports that it could not dispatch the check and shows the draft after the self-check only. Writing an accepted rule to `~/.claude/www/writing-rules.md` from Codex needs a sandbox that allows writes outside the document folder (`sandbox_mode = "danger-full-access"`, or an approval when asked); a refused write is reported and the rule stays in the document's `design.md`.
+- Claude Code CLI (`claude`, tested with 2.1.x) and/or Codex CLI (`codex`, tested with 0.162.x). For the skill's independent check, Codex needs its multi-agent feature on (`multi_agent = true` under `[features]` in `~/.codex/config.toml`); without it the skill reports that it could not dispatch the check and shows the draft after the self-check only. Writing an accepted rule to `~/.claude/www/writing-rules.md` or a case to `~/.claude/www/cases/` from Codex needs a sandbox that allows writes outside the document folder (`sandbox_mode = "danger-full-access"`, or an approval when asked); a refused write is reported, the rule stays in the document's `design.md`, and the case text stays in the reply.
 - `python3` on the path (macOS ships it with the command-line tools); `scripts/check.sh` and `tests/ads-introduction/check.sh` parse JSON and split sentences with it.
 - git.
 
@@ -47,7 +47,7 @@ claude plugin marketplace update www && claude plugin update www@www
 ```
 
 ```bash
-codex plugin remove www && codex plugin add www@www
+codex plugin remove www@www && codex plugin add www@www
 ```
 
 For a marketplace added from GitHub, `claude plugin marketplace update www` and `codex plugin marketplace upgrade www` fetch the new commit after it is pushed; for a local-path marketplace, `codex plugin marketplace upgrade` does nothing, so remove and add the plugin. Verify an update with `diff -q src/skills/write/references/elicit.md <cache path>/skills/write/references/elicit.md`.
@@ -68,7 +68,7 @@ Exit 0 when both marketplace manifests name `www`, the three platform manifests 
 
 ## Acceptance test
 
-Follow `tests/ads-introduction/RUN.md`. Interactive: open a Claude Code session in `tests/ads-introduction/`, run `/www:write`, ask for the Introduction draft and a Korean explanation. Headless, from the repository root:
+Follow `tests/ads-introduction/RUN.md`. Before any run move the case store aside, `mv ~/.claude/www/cases ~/.claude/www/cases.aside`, and restore it after, `mv ~/.claude/www/cases.aside ~/.claude/www/cases`; with the store in place the draft would depend on the cases the machine holds. Interactive: open a Claude Code session in `tests/ads-introduction/`, run `/www:write`, ask for the Introduction draft and a Korean explanation. Headless, from the repository root:
 
 ```bash
 cd tests/ads-introduction && claude -p --dangerously-skip-permissions --output-format text --max-turns 60 "/www:write No need to initialize git here. Draft the Introduction section. After the draft and its checks, give me a Korean explanation of what the draft says." < /dev/null > results/transcript.txt
@@ -96,7 +96,7 @@ git checkout -- tests/ads-introduction/design.md && rm -f tests/ads-introduction
 
 ## Using the skill on a document
 
-Open a Claude Code or Codex session in the document's folder (or pass the folder path after the command) and run `/www:write` or `$write` followed by the request in plain words. The skill creates `design.md` and `draft.md` there. `~/.claude/www/writing-rules.md` appears the first time a cross-document rule is accepted; deleting it drops those rules, nothing else.
+Open a Claude Code or Codex session in the document's folder (or pass the folder path after the command) and run `/www:write` or `$write` followed by the request in plain words. The skill creates `design.md` and `draft.md` there. `~/.claude/www/writing-rules.md` appears the first time a cross-document rule is accepted; deleting it drops those rules, nothing else. When every section is drafted and nothing is open, the skill offers once per session to write the document's case to `~/.claude/www/cases/<date>-<folder name>.md`, showing the whole case first; the author may also ask for it at any time. Cases are read on later documents for how to write; deleting a case file drops that document's lessons, nothing else.
 
 ## Uninstall
 
@@ -105,7 +105,7 @@ claude plugin uninstall www@www && claude plugin marketplace remove www
 ```
 
 ```bash
-codex plugin remove www && codex plugin marketplace remove www
+codex plugin remove www@www && codex plugin marketplace remove www
 ```
 
-Document folders and `~/.claude/www/writing-rules.md` are untouched by uninstalling.
+Document folders, `~/.claude/www/writing-rules.md` and `~/.claude/www/cases/` are untouched by uninstalling.

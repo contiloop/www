@@ -6,6 +6,8 @@ The fixture is `design.md` in this folder: the record of the author's machine-tr
 
 The reader and message lines in Overview were given by the author on 2026-11-07 and are filled. One proposal is still pending in Status: the three relations whose Korean line has no connective (C4 → C5, C6 → C7, C11 → C12). The author confirms or renames them in the session's first turn; until then a draft that renders them differently is not a failure.
 
+Run with `~/.claude/www/cases/` absent or moved aside: `mv ~/.claude/www/cases ~/.claude/www/cases.aside` before the run and `mv ~/.claude/www/cases.aside ~/.claude/www/cases` after. The skill reads every case there once the record holds type and reader and lets the matched ones shape the draft, so a run with the store in place depends on the machine's cases. The offer to write a case does not fire in this fixture: the record has five sections and the run drafts one.
+
 A headless variant of steps 2 to 6 (one `claude -p` command, stdin from `/dev/null`, the git offer pre-answered in the prompt) is in `docs/operations.md`; it produces the same artifacts.
 
 ## Steps (Claude Code)

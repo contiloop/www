@@ -1,0 +1,51 @@
+Git is not initialized here, as you asked. The three relations stay as written and the proposal is removed from Status; nothing new entered parts 1 to 4:
+
+- C4 → C5 by contrast (author: 병렬 데이터를 사람에게 만들도록 하기 어렵다.)
+- C6 → C7 by cause (author: Teacher LLM이 양질의 번역 supervision을 제공할 수 있다.)
+- C11 → C12 by condition (author: ADS는 student의 번역을 QE 모델로 평가하고, QE 점수가 낮은 문장을 우선 선택한다.)
+
+Status now reads `Introduction: level logic, draft drafted`, `proposals: none`.
+
+**Self-check** ran on the first draft and changed nothing. **Independent check** returned one finding, which the record settles, so it was applied:
+
+- Site: "Teacher LLMs can provide high-quality supervision of this kind." Record: C6 → C7 by cause. Difference: the sentence followed C6 as plain succession, with no causal sense, and "of this kind" has no recorded words behind it.
+
+Paragraph before:
+
+> Training such models requires parallel data. Constructing parallel data manually, however, is difficult, so an alternative source of supervision is needed. Teacher LLMs can provide high-quality supervision of this kind. However, applying them to the entire dataset is expensive. Yet even a small amount of high-quality data can improve the performance of the model being trained.
+
+Paragraph after:
+
+> Training such models requires parallel data. Constructing parallel data manually, however, is difficult, so an alternative source of supervision is needed. Teacher LLMs are such a source, since they can provide high-quality supervision. However, applying them to the entire dataset is expensive. Yet even a small amount of high-quality data can improve the performance of the model being trained.
+
+The self-check ran again after the fix and changed nothing. The check also noted, without listing them as mismatches, that C9 says "the model being trained" where your line says "student", and C12 says "student model"; both render your words, so I left them.
+
+**The Introduction as it stands** (`draft.md`):
+
+> ## Introduction
+>
+> Translation technology has advanced. However, using existing translation services raises cost and security issues. Small, domain-specific translation models that can run locally must therefore be developed.
+>
+> Training such models requires parallel data. Constructing parallel data manually, however, is difficult, so an alternative source of supervision is needed. Teacher LLMs are such a source, since they can provide high-quality supervision. However, applying them to the entire dataset is expensive. Yet even a small amount of high-quality data can improve the performance of the model being trained.
+>
+> Which sentences, then, should receive the teacher's annotation budget when that budget is limited? To answer this question, we propose QE-guided Active Data Selection (ADS). ADS evaluates the student model's translations with a QE model and prioritizes the sentences with low QE scores.
+
+Do you object to the applied fix? Silence or "continue" leaves it.
+
+**초안이 말하는 내용** (기록의 C1–C12 기준):
+
+1. 번역 기술은 발전했다.
+2. 그러나 기존 서비스를 사용하기에는 비용·보안 문제가 있다.
+3. 그러므로 로컬에서 실행할 수 있는 작은 도메인 특화 번역 모델을 개발해야 한다. "로컬에서 실행할 수 있는"이라는 조건을 문장 안에 두었고, 선택지가 아니라 개발해야 할 필요로 썼다.
+4. 이러한 모델을 학습하려면 병렬 데이터가 필요하다.
+5. 그러나 병렬 데이터를 사람이 직접 만드는 것은 어렵다.
+6. 따라서 다른 supervision 공급원이 필요하다.
+7. Teacher LLM이 그 공급원이다. 양질의 supervision을 제공할 수 있기 때문이다.
+8. 하지만 전체 데이터에 적용하기에는 비용이 크다.
+9. 그런데 소량의 고품질 데이터만으로도 학습 중인 모델의 성능을 개선할 수 있다.
+10. 그렇다면 teacher의 비용이 제한되어 있을 때, 어떤 문장에 그 비용을 써야 하는가?
+11. 이 질문에 답하기 위해 QE-guided Active Data Selection(ADS)을 제안한다.
+12. ADS는 student 모델의 번역을 QE 모델로 평가하고, QE 점수가 낮은 문장을 우선 선택한다.
+
+연구 질문(10)과 ADS 제안(11) 사이에는 아무 문장도 없고, 작은 모델의 유용성에 대한 판단도 초안에 없다.
+exit=0

@@ -2,24 +2,25 @@
 
 ## Scope
 
-This folder is the skill's source: `SKILL.md` (the entry file, the only one loaded at start) and `references/` (seven files, each loaded at the step it governs). Everything the agent does under `/www:write` (Claude Code) or `$write` (Codex) is specified here. `scripts/build.sh` copies this folder, minus this notes file, into `claude/skills/write/` and `codex/plugin/skills/write/`; those copies are never edited. The folder owns the record format, the questioning method, the manuscript path, the writing rules, drafting, and the checks.
+This folder is the skill's source: `SKILL.md` (the entry file, the only one loaded at start) and `references/` (eight files, each loaded at the step it governs). Everything the agent does under `/www:write` (Claude Code) or `$write` (Codex) is specified here. `scripts/build.sh` copies this folder, minus this notes file, into `claude/skills/write/` and `codex/plugin/skills/write/`; those copies are never edited. The folder owns the record format, the questioning method, the manuscript path, the writing rules, drafting, the checks, and the case store's rules.
 
-Not this folder's scope: the manifests and overlays (`platform/`, `.claude-plugin/`, `.agents/`), the build and structure check (`scripts/`), the generated packages (`claude/`, `codex/`), the acceptance fixture (`tests/`), and the author's run-time files (`design.md`, `draft.md` in document folders; `~/.claude/www/writing-rules.md`), which the skill writes but which are not part of the plugin.
+Not this folder's scope: the manifests and overlays (`platform/`, `.claude-plugin/`, `.agents/`), the build and structure check (`scripts/`), the generated packages (`claude/`, `codex/`), the acceptance fixture (`tests/`), and the author's run-time files (`design.md`, `draft.md` in document folders; `~/.claude/www/writing-rules.md`; `~/.claude/www/cases/`), which the skill writes but which are not part of the plugin.
 
 ## Boundaries
 
 - `SKILL.md` routes; it does not restate a reference's rules. A rule's test lives in exactly one reference.
 - `references/drafting.md` is the only file that lists the style sources (shipped rules file, user rules file, the document's emphasis and wording notes). A new style source is added there and nowhere else.
 - `references/writing-rules.md` is the only file that states sentence-level tests. Other files refer to it by path and by rule number.
-- Nothing in this folder is written at run time. Run-time rules go to the user rules file.
+- `references/cases.md` is the only file that states the case store's path, the case file's shape, when a case is offered and read, and what a case may change. Other files point to it by path.
+- Nothing in this folder is written at run time. Run-time rules go to the user rules file; cases go to the case store.
 - Do not add a file to `references/` without naming it in `SKILL.md` by `references/<name>.md`; `scripts/check.sh` fails otherwise. After any edit here, run `sh scripts/build.sh` and commit the regenerated packages, or the check fails on staleness.
 - The text names no platform: no command, no tool name. It says "the command", "the platform's subagent facility", "the platform's structured question tool when it has one, otherwise plain text".
 
 ## Invariants (each is checkable by reading the files)
 
 - Every file is English, starts with one top-level heading (`SKILL.md`: frontmatter first, then the heading), and contains no list of literal questions to ask, no document-type template, and none of the words harness, 3-doc, gate, wave, lens, grounding, delta as mechanism names.
-- The vocabulary is fixed: the author; the record (`design.md`); the draft (`draft.md`); the document folder; proposal; accepted / rejected; stale; claim; relation; condition; emphasis and wording notes; the shipped rules file; the user rules file; restatement. Value sets: levels `type`, `reader-and-topic`, `structure` (document-wide) and `none | plan | logic | wording` (per section); draft state `none | drafted | stale`; roles need, cause, judgment, question, proposal, description; relations cause, contrast, condition, consequence, question/answer.
-- The ten rules under "Rules held without opening a reference" in `SKILL.md` each have their full statement in a reference; a rule stated only in `SKILL.md` is a defect.
+- The vocabulary is fixed: the author; the record (`design.md`); the draft (`draft.md`); the document folder; proposal; accepted / rejected; stale; claim; relation; condition; emphasis and wording notes; the shipped rules file; the user rules file; restatement; case; content remark; understanding remark; category A / category B finding. Value sets: levels `type`, `reader-and-topic`, `structure` (document-wide) and `none | plan | logic | wording` (per section); draft state `none | drafted | stale`; roles need, cause, judgment, question, proposal, description; relations cause, contrast, condition, consequence, question/answer; task type of a case `presentation script | research paper | report | essay | other`.
+- The thirteen rules under "Rules held without opening a reference" in `SKILL.md` each have their full statement in a reference; a rule stated only in `SKILL.md` is a defect.
 - Frontmatter in this source: `name: write` and `description` only. The build inserts `disable-model-invocation: true` and `allowed-tools: Read, Edit, Write, Bash, Grep, Glob, Agent, AskUserQuestion` into the Claude copy (the Agent tool is required by the independent check, AskUserQuestion by structured questions) and adds `agents/openai.yaml` with `allow_implicit_invocation: false` to the Codex copy.
 
 ## Patterns
@@ -34,4 +35,5 @@ Not this folder's scope: the manifests and overlays (`platform/`, `.claude-plugi
 - `sh scripts/build.sh && sh scripts/check.sh` after any edit (heading, body, frontmatter, cross-naming, both packages equal to a fresh build).
 - A change to `drafting.md`, `review.md` or `writing-rules.md` is tried on the acceptance fixture (`tests/ads-introduction/RUN.md`) on both platforms: the draft must still keep claim 3 as a need with the local condition, insert nothing between claims 10 and 11, add no sentence without a claim, and the Korean explanation must add no claim.
 - A change to `elicit.md`, `decompose.md`, `existing-manuscript.md` or the entry behavior in `SKILL.md` is tried live on a real document, because the fixture pre-answers the questioning half.
+- A change to `cases.md`, or to the category handling of findings in `review.md`, is tried live: the fixture drafts one section of five, so it never reaches the end-of-document offer, and its record is settled enough that a category B finding is unlikely. Run the fixture with `~/.claude/www/cases/` moved aside.
 - Edge cases worth exercising by hand: a `design.md` edited by hand so Status disagrees with the body; a hand-edited sentence in `draft.md`; a request to draft a section at level `plan`; a correction that changes a claim other sections rest on; a folder with two text files and no record.
